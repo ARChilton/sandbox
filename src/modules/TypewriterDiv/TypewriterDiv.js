@@ -57,7 +57,6 @@ const DefaultTypewriterDiv = styled(TypewriterDiv) `
 const mapStateToProps = (state) => {
   const questionNumber = getTypewriterQuestionNumber(state)
   const question = getTypewriterQuestions(state)[questionNumber]
-  console.log({ ...question, key: questionNumber })
   return { ...question, key: questionNumber }
 }
 

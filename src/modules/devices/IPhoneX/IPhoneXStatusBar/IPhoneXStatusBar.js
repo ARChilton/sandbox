@@ -39,7 +39,7 @@ const IPhoneXStatusBar = ({ statusBGColor, statusColor }) => (
   <div>
     <IPhoneXStatusBarContainer statusBGColor={statusBGColor}>
       <IPhoneXStatusBarItem statusColor={statusColor}>
-        <Clock />
+        <Clock ticking interval={60000} />
       </IPhoneXStatusBarItem>
       <IPhoneXStatusBarItem>
         <IPhoneXStatusBarIcon src={signal} alt="signal icon" />

@@ -3,7 +3,7 @@ import { P, A } from '../../../components/Text/Text'
 
 export const A0 = () => (
   <div>
-    <P>There are thousands of possible answers but I reccomend:</P>
+    <P>There are thousands of possible answers but I recommend:</P>
     <P>Adam Chilton</P>
   </div>
 )
@@ -22,4 +22,8 @@ export const A2 = () => (
     <P>He is a qualified AGILE product owner.</P>
     <P>Using these skills he designed and led a team to create a front end geospatial informatio system and map shop for the Ministry Of Defence in the UK.</P>
   </div>
+)
+
+export const A3 = () => (
+  <img style={{ width: '100%' }} src="https://metrouk2.files.wordpress.com/2017/07/187144066.jpg?w=748&h=498&crop=1" alt="cute kittens" />
 )

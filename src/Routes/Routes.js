@@ -13,6 +13,7 @@ const Routes = () => (
   <div>
     {/* <NavBar /> */}
     <Route exact path="/" component={Sandbox} />
+    <Route exact path="/sandbox" component={Sandbox} />
     {/* <Route path="/projects" component={ProjectsPage} /> */}
   </div>
 )

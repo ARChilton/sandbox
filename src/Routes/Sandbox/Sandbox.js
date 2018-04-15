@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import { connect } from 'react-redux'
+import Helmet from 'react-helmet'
 import DefaultTypewriterDiv from '../../modules/TypewriterDiv/TypewriterDiv'
 import DefaultPhoneQuestioResponse from '../../modules/PhoneQuestionResponse/PhoneQuestionResponse'
 import { changeQuestionNumber } from '../../modules/TypewriterDiv/typewriterState'
@@ -35,8 +36,11 @@ class Sandbox extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: '#fff', height: '100vh', width: '100%' }}>
 
+      <div style={{ backgroundColor: '#fff', height: '100vh', width: '100%' }}>
+        <Helmet
+          title="Sandbox"
+        />
         {/* <DefaultPhoneQuestioResponse /> */}
         <ColoredDiv bgColor="green">
           <DeviceContainer>

@@ -32,6 +32,13 @@ export const initialState = {
       timeOut: 20000,
       no: 2,
     },
+    {
+      typewriterText: 'Hey Kat, thank you for watching to the end, here is your prize ;)',
+      duration: 3,
+      answer: answers.A3(),
+      timeOut: 20000,
+      no: 3,
+    },
   ],
   questionNumber: 0,
 }
