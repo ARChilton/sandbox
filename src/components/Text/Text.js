@@ -34,3 +34,7 @@ export const Li = styled('li') `
 font-family:${props => props.theme.font.fontFamily || 'roboto'};
 font-size:16px;
 `
+
+export const A = styled('a') `
+color:${props => props.theme.color.primary};
+`

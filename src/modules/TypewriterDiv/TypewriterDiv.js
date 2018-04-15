@@ -8,11 +8,11 @@ import { getTypewriterQuestionNumber, getTypewriterQuestions } from '../../redux
 
 
 const TypewriterDiv = ({
-  className, children, typewriterText, steps, typeWidth, duration, delay, key,
+  className, children, typewriterText, duration, delay, key, no, timeOut,
 }) => (
   <div className={className}>
     <ReactCSSTransitionGroup transitionName="typewriter" transitionEnter={false} transitionLeave={false}>
-      <DefaultTypewriterText key={key} steps={steps} typeWidth={typeWidth} duration={duration} delay={delay} typewriterText={typewriterText}>
+      <DefaultTypewriterText key={key} no={no} timeOut={timeOut} duration={duration} delay={delay} typewriterText={typewriterText}>
         {children}
       </DefaultTypewriterText>
     </ReactCSSTransitionGroup>
@@ -25,9 +25,9 @@ TypewriterDiv.propTypes = {
   typewriterText: PropTypes.string,
   duration: PropTypes.number,
   delay: PropTypes.number,
-  steps: PropTypes.number,
-  typeWidth: PropTypes.string,
   key: PropTypes.number,
+  no: PropTypes.number,
+  timeOut: PropTypes.number,
 }
 
 TypewriterDiv.defaultProps = {
@@ -35,17 +35,17 @@ TypewriterDiv.defaultProps = {
   typewriterText: null,
   duration: 2,
   delay: 1.5,
-  steps: 28,
-  typeWidth: '8em',
   key: 999,
+  no: 0,
+  timeOut: 15000,
 }
 
 const DefaultTypewriterDiv = styled(TypewriterDiv) `
   font-family:'Anonymous Pro', monospace;
   font-size:20px;
-  width:75%;
+  width:90%;
   min-height:40px;
-  border:1px solid #000;
+  border:1px solid #eee;
   padding:4px 8px;
   margin:20px auto;
   /* height:40px; */
@@ -59,13 +59,6 @@ const mapStateToProps = (state) => {
   const question = getTypewriterQuestions(state)[questionNumber]
   console.log({ ...question, key: questionNumber })
   return { ...question, key: questionNumber }
-  // return {
-  //   typewriterText: question.questionText,
-  //   key: questionNumber,
-  //   duration: question.duration,
-  //   steps: question.steps,
-  //   delay: question.delay,
-  // }
 }
 
 export default connect(mapStateToProps)(DefaultTypewriterDiv)

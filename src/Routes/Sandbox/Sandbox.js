@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'react-emotion'
 import { connect } from 'react-redux'
 import DefaultTypewriterDiv from '../../modules/TypewriterDiv/TypewriterDiv'
-import DefaultQuestionResponse from '../../modules/QuestionResponse/QuestionResponse'
+import DefaultPhoneQuestioResponse from '../../modules/PhoneQuestionResponse/PhoneQuestionResponse'
 import { changeQuestionNumber } from '../../modules/TypewriterDiv/typewriterState'
 import { getTypewriterQuestionNumber, getTypewriterQuestions } from '../../redux/reducers'
-// import PropTypes from 'prop-types'
-// import Canvas from '../../components/Canvas/Canvas'
+import IPhoneX from '../../modules/devices/IPhoneX/IPhoneX'
+import ColoredDiv from '../../components/ColoredDiv/ColoredDiv'
 
+const DeviceContainer = styled('div') `
+@media(min-width:768px){
+margin: 5% 15% 0 15%;
+}
+max-height:600px;
+/* overflow-y:hidden; */
+
+
+`
 
 class Sandbox extends Component {
   componentDidMount() {
@@ -25,13 +35,19 @@ class Sandbox extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: '#000', height: '100vh', width: '100%' }}>
+      <div style={{ backgroundColor: '#fff', height: '100vh', width: '100%' }}>
 
-        {/* <Canvas w="100%" h="80%" /> */}
-        <DefaultTypewriterDiv />
-        <DefaultQuestionResponse />
+        {/* <DefaultPhoneQuestioResponse /> */}
+        <ColoredDiv bgColor="green">
+          <DeviceContainer>
+            <IPhoneX keyboard>
+              <DefaultTypewriterDiv />
+              <DefaultPhoneQuestioResponse />
+            </IPhoneX>
+          </DeviceContainer>
+        </ColoredDiv>
 
-      </div>
+      </div >
     )
   }
 }

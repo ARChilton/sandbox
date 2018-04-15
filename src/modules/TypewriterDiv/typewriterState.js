@@ -1,3 +1,5 @@
+import * as answers from './TypewriterAnswers/TypewriterAnswers'
+
 const CHANGE_QUESTION_NUMBER = 'CHANGE_QUESTION_NUMBER'
 
 export const changeQuestionNumber = (questionNumber = 0) => ({
@@ -5,32 +7,40 @@ export const changeQuestionNumber = (questionNumber = 0) => ({
   payload: { questionNumber },
 })
 
+
 export const initialState = {
   questions: [
     {
-      typewriterText: 'Why hire Adam Chilton?',
-      typeWidth: '12em',
+      typewriterText: 'Who should I contact about a new website?',
       duration: 2,
-      steps: 24,
-      answer: 'He works with the latest technology.',
+      timeOut: 15000,
+      answer: answers.A0(),
+      no: 0,
     },
     {
-      typewriterText: 'What experience does he have?',
-      typeWidth: '16em',
-      duration: 3,
-      steps: 32,
-      answer: 'He managed a product team to create a front-end platform for the Ministry of Defence in the UK.',
+      typewriterText: 'Who is Adam Chilton?',
+      duration: 1,
+      answer: answers.A1(),
+      timeOut: 25000,
+      no: 1,
+      // onTypingDone: ()=>autoUpdateQuestionNumber()
     },
     {
       typewriterText: 'What other experience does he have?',
-      typeWidth: '19.2em',
-      duration: 4,
-      steps: 40,
-      answer: 'He created checkpointlive.com from scratch, front and back end. He also created a new website for parcelfly.com, but they haven\'t switched it over yet.',
+      duration: 3,
+      answer: answers.A2(),
+      timeOut: 20000,
+      no: 2,
     },
   ],
   questionNumber: 0,
 }
+
+const totalQuestionCount = initialState.questions.length
+
+export const autoUpdateQuestionNumber = (questionNumber, timeOut) => dispatch => ((questionNumber + 1) < totalQuestionCount
+  ? setTimeout(() => dispatch(changeQuestionNumber(questionNumber + 1)), timeOut)
+  : null)
 
 const typewriterReducer = (state = initialState, action) => {
   const { type, payload } = action

@@ -13,13 +13,16 @@
     "react-dom": "^16.3.1",
     "react-emotion": "^9.1.1",
     "react-helmet": "^5.2.0",
+    "react-live-clock": "^2.0.3",
     "react-particles-js": "^2.1.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.1.4",
+    "react-typist": "^2.0.4",
     "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "typeface-anonymous-pro": "0.0.54"
   },
   "scripts": {
