@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import '../../../css/devices.css'
 import IPhoneXStatusBar from './IPhoneXStatusBar/IPhoneXStatusBar'
 import IPhoneXKeyboard from './IPhoneXKeyboard/IPhoneXKeyboard'
+import IPhoneXToolbar from './IPhoneXToolbar/IPhoneXToolbar'
 
 const IPhoneX = ({ children, keyboard }) => (
   <div style={{ margin: 'auto' }}>
@@ -24,7 +25,11 @@ const IPhoneX = ({ children, keyboard }) => (
       <div className="inner-shadow" />
       <div className="screen">
         <IPhoneXStatusBar />
+        <IPhoneXToolbar />
+
+
         {children}
+
         {keyboard ? <IPhoneXKeyboard /> : null}
       </div>
     </div>

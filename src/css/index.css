@@ -4,3 +4,6 @@ body {
   font-family: sans-serif;
 }
 
+ons-toolbar .toolbar{
+  top:30px !important;
+}

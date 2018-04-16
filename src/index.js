@@ -6,6 +6,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 // Theming
 import { ThemeProvider } from 'emotion-theming'
+import 'typeface-anonymous-pro/index.css'
 // redux
 import { Provider as ReduxStoreProvider } from 'react-redux'
 // redux store
@@ -17,7 +18,6 @@ import registerServiceWorker from './registerServiceWorker'
 import './css/bootstrap.min.css'
 import './css/index.css'
 import theme from './css/theme'
-import 'typeface-anonymous-pro/index.css'
 
 
 // components
