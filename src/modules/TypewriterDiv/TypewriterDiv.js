@@ -45,9 +45,9 @@ const DefaultTypewriterDiv = styled(TypewriterDiv) `
   font-size:20px;
   width:90%;
   min-height:40px;
-  border:1px solid #eee;
+  /* border:1px solid #eee; */
   padding:4px 8px;
-  margin:20px auto;
+  margin:10px auto;
   /* height:40px; */
   line-height:40px;
   display: block;

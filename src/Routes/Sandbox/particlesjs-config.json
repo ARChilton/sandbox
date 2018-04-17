@@ -8,7 +8,7 @@
       }
     },
     "color": {
-      "value": "#ffffff"
+      "value": "#89B3EB"
     },
     "shape": {
       "type": "circle",
@@ -30,13 +30,13 @@
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 1,
+        "speed": 2,
         "opacity_min": 0,
         "sync": false
       }
     },
     "size": {
-      "value": 3,
+      "value": 4,
       "random": true,
       "anim": {
         "enable": false,
@@ -47,8 +47,8 @@
     },
     "line_linked": {
       "enable": true,
-      "distance": 100,
-      "color": "#ffffff",
+      "distance": 200,
+      "color": "#89B3EB",
       "opacity": 0.4,
       "width": 1
     },

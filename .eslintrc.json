@@ -49,7 +49,7 @@
             "never"
         ],
         "template-tag-spacing": [
-            "error",
+            "warn",
             "always"
         ],
         "padded-blocks": [

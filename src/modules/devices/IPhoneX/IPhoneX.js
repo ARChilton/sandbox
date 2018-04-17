@@ -5,9 +5,10 @@ import IPhoneXStatusBar from './IPhoneXStatusBar/IPhoneXStatusBar'
 import IPhoneXKeyboard from './IPhoneXKeyboard/IPhoneXKeyboard'
 import IPhoneXToolbar from './IPhoneXToolbar/IPhoneXToolbar'
 
-const IPhoneX = ({ children, keyboard }) => (
+const IPhoneX = ({ children, keyboard, toolbarTitle }) => (
   <div style={{ margin: 'auto' }}>
-    <div className="marvel-device iphone-x">
+
+    <div className="marvel-device iphone-x" >
       <div className="notch">
         <div className="camera" />
         <div className="speaker" />
@@ -25,25 +26,28 @@ const IPhoneX = ({ children, keyboard }) => (
       <div className="inner-shadow" />
       <div className="screen">
         <IPhoneXStatusBar />
-        <IPhoneXToolbar />
+        <IPhoneXToolbar centerChildren={toolbarTitle} />
 
-
+        {/* <div style={keyboard ? { 'max-height': '458px', height: '100%', 'overflow-y': 'scroll' } : ''}> */}
         {children}
-
+        {/* </div> */}
         {keyboard ? <IPhoneXKeyboard /> : null}
       </div>
     </div>
+
   </div>
 )
 
 IPhoneX.propTypes = {
   children: PropTypes.node,
   keyboard: PropTypes.bool,
+  toolbarTitle: PropTypes.node,
 }
 
 IPhoneX.defaultProps = {
   children: 'Nothing to see here',
   keyboard: false,
+  toolbarTitle: null,
 }
 
 export default IPhoneX
