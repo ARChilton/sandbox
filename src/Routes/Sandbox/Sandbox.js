@@ -13,7 +13,7 @@ import ColoredDiv from '../../components/ColoredDiv/ColoredDiv'
 import { getShowQuestionControlState, getTypewriterQuestionNumber, getTypewriterQuestions } from '../../redux/reducers'
 import { increaseQuestionNumber, decreaseQuestionNumber } from '../../modules/TypewriterDiv/typewriterState'
 
-const rhsContainerClass = css`
+const rhsContainerClass = css `
 padding:8px;
 @media(min-width:768px){
   padding:90px 8px 16px;
@@ -81,7 +81,9 @@ const Chevron = styled('div') `
 }
 `
 
-const Sandbox = ({ showControlButtons, onClickLeft, onClickRight, questionNumber, questions }) => (
+const Sandbox = ({
+ showControlButtons, onClickLeft, onClickRight, questionNumber, questions 
+}) => (
   <div>
     <Helmet
       title="Starmind"
@@ -127,7 +129,7 @@ const Sandbox = ({ showControlButtons, onClickLeft, onClickRight, questionNumber
 
       </div>
 
-      <div className={cx(rhsContainerClass, 'col-xs-12 col-md-6 col-md-offset-1')} style={{ color: '#000' }}>
+      <div className={cx(rhsContainerClass, 'col-xs-12 col-md-5 col-md-offset-1')} style={{ color: '#000' }}>
         <RightHandSide />
 
       </div>
@@ -153,6 +155,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onClickLeft: () => dispatch(decreaseQuestionNumber()),
-  onClickRight: () => dispatch(increaseQuestionNumber())
+  onClickRight: () => dispatch(increaseQuestionNumber()),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Sandbox)

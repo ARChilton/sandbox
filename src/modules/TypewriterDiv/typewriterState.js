@@ -90,7 +90,9 @@ const typewriterReducer = (state = initialState, action) => {
       return { ...state, ...payload, automateQuestions: false }
     case INCREASE_QUESTION_NUMBER:
       return state.questionNumber + 1 < state.questions.length
-        ? { ...state, questionNumber: state.questionNumber + 1, showPhoneAnswer: false }
+        ? {
+          ...state, questionNumber: state.questionNumber + 1, showPhoneAnswer: false, rhs: 2,
+        }
         : state
     case DECREASE_QUESTION_NUMBER:
       return { ...state, questionNumber: state.questionNumber - 1, showPhoneAnswer: false }

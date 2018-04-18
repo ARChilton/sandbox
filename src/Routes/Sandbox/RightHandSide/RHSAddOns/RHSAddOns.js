@@ -14,7 +14,7 @@ export const AddOn1 = () => (
   <div className="row">
     <div className="col-xs-12">
 
-      <div className="col-sm-6" >
+      <div className="col-sm-7" >
         <H2>Experience</H2>
         <ul>
           <Li>Creator and Founder of Checkpoint Live</Li>
@@ -26,7 +26,7 @@ export const AddOn1 = () => (
         </ul>
 
       </div>
-      <div className="col-sm-5 col-sm-offset-1">
+      <div className="col-sm-4 col-sm-offset-1">
         <H2>Tools of choice</H2>
         <ul>
           <Li>React</Li>
@@ -47,7 +47,7 @@ export const AddOn2 = () => (
   <div className="row">
     <div className="col-xs-12">
 
-      <div className="col-sm-6" >
+      <div className="col-sm-7" >
         <H2>Products</H2>
         <ul>
           <Li><A target="_blank" href="https://checkpointlive.com">Checkpoint Live</A></Li>
@@ -59,7 +59,7 @@ export const AddOn2 = () => (
         </ul>
 
       </div>
-      <div className="col-sm-5 col-sm-offset-1">
+      <div className="col-sm-4 col-sm-offset-1">
         <H2>Skills</H2>
         <ul>
           <Li>Webapp development</Li>

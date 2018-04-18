@@ -13,7 +13,7 @@ const RightHandSide = ({ rhs }) => (
   <div>
 
 
-    <div className="col-xs-4  col-xs-offset-4 col-sm-2 col-sm-offset-5">
+    <div className="col-xs-4  col-xs-offset-4 col-sm-2 col-md-4 col-sm-offset-4">
       <ChipImg src={me} dimensions="100%" style={{ margin: 'auto' }} />
     </div>
 
