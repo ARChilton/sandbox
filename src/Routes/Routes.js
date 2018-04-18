@@ -3,7 +3,7 @@ import { Route } from 'react-router'
 // import PropTypes from 'prop-types'
 // import { connect } from 'react-redux'
 
-// import NavBar from '../modules/NavBar/NavBar'
+import NavBar from '../modules/NavBar/NavBar'
 
 import Sandbox from './Sandbox/Sandbox'
 // import ProjectsPage from './ProjectsPage/ProjectsPage'
@@ -11,9 +11,9 @@ import Sandbox from './Sandbox/Sandbox'
 
 const Routes = () => (
   <div>
-    {/* <NavBar /> */}
+    <NavBar />
     <Route exact path="/" component={Sandbox} />
-    <Route exact path="/sandbox" component={Sandbox} />
+    <Route exact path="/starmind" component={Sandbox} />
     {/* <Route path="/projects" component={ProjectsPage} /> */}
   </div>
 )

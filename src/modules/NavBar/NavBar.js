@@ -12,8 +12,8 @@ const NavBar = ({ className }) => (
         <div className="col-sm-1">
           {/* <img src="https://checkpointlive.com/largeLogo.png" alt="Checkpoint Live small logo" /> */}
         </div>
-        <NavBarOption to="/" label="Home" />
-        <NavBarOption to="/projects" label="Projects" />
+        <NavBarOption to="/starmind" label="Home" />
+        {/* <NavBarOption to="/projects" label="Projects" /> */}
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@ NavBar.propTypes = {
 }
 
 
-const DefaultNavBar = styled(NavBar)`
+const DefaultNavBar = styled(NavBar) `
 @media(min-width:768px){
   top:0px;
   position:sticky;

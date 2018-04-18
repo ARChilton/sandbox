@@ -4,16 +4,16 @@ import styled, { cx } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 
 const activeStyle = {
-  borderBottom: 'rgba(255, 145, 0, 0.5) 2px solid',
+  borderBottom: 'rgba(121, 134, 203, 0.5) 2px solid',
 }
 
 const NavBarOption = ({
   className, label, to,
 }) => (
-    <NavLink to={to} href={to} exact activeStyle={activeStyle} className={cx(className, 'col-xs-2', 'col-xs-push-7')} >
-      {label}
-    </NavLink>
-  )
+  <NavLink to={to} href={to} exact activeStyle={activeStyle} className={cx(className, 'col-xs-2', 'col-xs-push-9')} >
+    {label}
+  </NavLink>
+)
 
 NavBarOption.propTypes = {
   className: PropTypes.string.isRequired,

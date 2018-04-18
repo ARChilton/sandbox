@@ -5,7 +5,7 @@ import styled from 'react-emotion'
 import Typist from 'react-typist'
 import { connect } from 'react-redux'
 import 'react-typist/dist/Typist.css'
-import { autoUpdateQuestionNumber } from '../typewriterState'
+import { autoUpdateQuestionNumber, togglePhoneAnswer } from '../typewriterState'
 
 
 const TypewriterText = ({ className, typewriterText, onTypingDone }) => (
@@ -22,6 +22,7 @@ TypewriterText.propTypes = {
   delay: PropTypes.number,
   typeWidth: PropTypes.string,
   onTypingDone: PropTypes.func,
+  automateQuestions: PropTypes.bool,
 }
 
 TypewriterText.defaultProps = {
@@ -30,6 +31,7 @@ TypewriterText.defaultProps = {
   delay: 1,
   children: null,
   onTypingDone: null,
+  automateQuestions: true,
 }
 
 
@@ -44,7 +46,10 @@ const DefaultTypewriterText = styled(TypewriterText) `
 DefaultTypewriterText.defaultProps = TypewriterText.defaultProps
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onTypingDone: () => dispatch(autoUpdateQuestionNumber(ownProps.no, ownProps.timeOut)),
+  onTypingDone: () => (ownProps.automateQuestions ?
+    dispatch(autoUpdateQuestionNumber(ownProps.no, ownProps.timeOut))
+    : dispatch(togglePhoneAnswer(true))
+  ),
 })
 
 export default connect(null, mapDispatchToProps)(DefaultTypewriterText)

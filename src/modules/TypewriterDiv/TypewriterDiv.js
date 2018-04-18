@@ -1,23 +1,21 @@
 import React from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import { connect } from 'react-redux'
 import DefaultTypewriterText from './TypewriterText/TypewriterText'
-import { getTypewriterQuestionNumber, getTypewriterQuestions } from '../../redux/reducers'
+import { getTypewriterQuestionNumber, getTypewriterQuestions, getAutomateQuestionsState } from '../../redux/reducers'
 
 
 const TypewriterDiv = ({
-  className, children, typewriterText, duration, delay, key, no, timeOut,
-}) => (
-  <div className={className}>
-    <ReactCSSTransitionGroup transitionName="typewriter" transitionEnter={false} transitionLeave={false}>
-      <DefaultTypewriterText key={key} no={no} timeOut={timeOut} duration={duration} delay={delay} typewriterText={typewriterText}>
+  className, children, typewriterText, duration, delay, no, timeOut, automateQuestions,
+}) =>
+  (
+    <div className={className}>
+      <DefaultTypewriterText no={no} timeOut={timeOut} duration={duration} delay={delay} typewriterText={typewriterText} automateQuestions={automateQuestions}>
         {children}
       </DefaultTypewriterText>
-    </ReactCSSTransitionGroup>
-  </div>
-)
+    </div>
+  )
 
 TypewriterDiv.propTypes = {
   className: PropTypes.string.isRequired,
@@ -25,9 +23,9 @@ TypewriterDiv.propTypes = {
   typewriterText: PropTypes.string,
   duration: PropTypes.number,
   delay: PropTypes.number,
-  key: PropTypes.number,
   no: PropTypes.number,
   timeOut: PropTypes.number,
+  automateQuestions: PropTypes.bool.isRequired,
 }
 
 TypewriterDiv.defaultProps = {
@@ -35,7 +33,6 @@ TypewriterDiv.defaultProps = {
   typewriterText: null,
   duration: 2,
   delay: 1.5,
-  key: 999,
   no: 0,
   timeOut: 15000,
 }
@@ -57,7 +54,11 @@ const DefaultTypewriterDiv = styled(TypewriterDiv) `
 const mapStateToProps = (state) => {
   const questionNumber = getTypewriterQuestionNumber(state)
   const question = getTypewriterQuestions(state)[questionNumber]
-  return { ...question, key: questionNumber }
+  return {
+    ...question,
+    key: questionNumber,
+    automateQuestions: getAutomateQuestionsState(state)
+  }
 }
 
 export default connect(mapStateToProps)(DefaultTypewriterDiv)
