@@ -1,6 +1,6 @@
 export default {
   color: {
-    primary: '#3F51B5',
+    primary: '#2b78e4',
     primaryDark: 'rgba(63, 81, 181, 0.5)',
     navigationClick: 'rgba(63, 81, 181, 0.3)',
 

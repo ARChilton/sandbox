@@ -1,5 +1,5 @@
 import React from 'react'
-import { P, A, H4 } from '../../../components/Text/Text'
+import { P, A, H4, Li } from '../../../components/Text/Text'
 
 
 export const A0 = () => (
@@ -20,8 +20,35 @@ export const A1 = () => (
 
 export const A2 = () => (
   <div>
+    <P>I can provide all or a combination of:</P>
+    <ul>
+      <Li>Website / app design</Li>
+      <Li>Website building</Li>
+      <Li>Website maintainance</Li>
+      <Li>Search Engine Optimisation (SEO)</Li>
+    </ul>
+  </div >
+)
+
+export const A3 = () => (
+  <div>
     <P>I am a certified AGILE product owner.</P>
     <P>In a previous role I designed and led a team to create a front end portal for the Ministry of Defence in the UK.</P>
     <P>This allowed regiments to perform basic geospatial calculations, preview and order their maps.</P>
+  </div>
+)
+
+export const A4 = () => (
+  <div>
+    <P>As a consultant I performed research for the UK Ministry of Defence into knowledge management and how organisations can improve the sharing of knowledge.</P>
+    <P>Having completed the research I was stunned at how poorly organisations share knowledge and how much knowledge leaves with an outgoing individual.</P>
+    <P>Starmind, from my research looks like a very good solution to a problem space I am familiar with.</P>
+  </div>
+)
+
+export const A5 = () => (
+  <div>
+    <P>Please scroll down to read more about the services I provide and my experience.</P>
+    <P>A small portfolio of websites I have built or been a part of building are at the bottom of the page.</P>
   </div>
 )

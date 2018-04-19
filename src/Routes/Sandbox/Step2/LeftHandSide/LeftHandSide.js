@@ -10,7 +10,7 @@ import images, { BackgroundImg } from '../../../../components/Images/Images'
 const LeftHandSide = ({ lhs }) => (
   <div>
     {
-      lhs > 0
+      lhs > 2
         ? (
           <ColoredDiv>
             <H2 textAlign="center" fontFamily="Kalam" fontWeight="bold">Design</H2>

@@ -11,7 +11,7 @@ const RightHandSide = ({ rhs }) => (
   <div>
 
 
-    {rhs > 0 ? (
+    {rhs > 3 ? (
       <ColoredDiv>
         <H2 textAlign="center" fontFamily="Kalam" fontWeight="bold">Release</H2>
         <BackgroundImg src={images.management} style={{ width: '100%', height: '550px' }} />

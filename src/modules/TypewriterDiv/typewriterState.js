@@ -8,6 +8,7 @@ const INCREASE_QUESTION_NUMBER = 'INCREASE_QUESTION_NUMBER'
 const DECREASE_QUESTION_NUMBER = 'DECREASE_QUESTION_NUMBER'
 const SHOW_QUESTIONS = 'SHOW_QUESTIONS'
 const SHOW_REST_OF_SITE = 'SHOW_REST_OF_SITE'
+export const INCREASE_QUESTIONS_SEEN = 'INCREASE_QUESTIONS_SEEN'
 
 export const changeQuestionNumber = (questionNumber = 0) => ({
   type: CHANGE_QUESTION_NUMBER,
@@ -22,6 +23,10 @@ export const togglePhoneAnswer = (showPhoneAnswer = false) => ({
 export const changeRHSNumber = (questionsSeen = 0) => ({
   type: CHANGE_RHS_NUMBER,
   payload: { questionsSeen },
+})
+
+export const increaseQuestionsSeen = () => ({
+  type: INCREASE_QUESTIONS_SEEN,
 })
 
 export const showQuestionControls = (questionControls = false) => ({
@@ -50,7 +55,7 @@ export const toggleShowRestOfSite = (showRestOfSite = true) => ({
 export const initialState = {
   questions: [
     {
-      typewriterText: 'What is the phone for?',
+      typewriterText: 'Why is there a phone in the center of the screen?',
       duration: 2,
       timeOut: 18000,
       answer: answers.A0(),
@@ -64,11 +69,32 @@ export const initialState = {
       no: 1,
     },
     {
-      typewriterText: 'What experience does he have?',
+      typewriterText: 'What services does Adam Chilton provide?',
       duration: 3,
       answer: answers.A2(),
       timeOut: 20000,
       no: 2,
+    },
+    {
+      typewriterText: 'What other experience does Adam Chilton have?',
+      duration: 3,
+      answer: answers.A3(),
+      timeOut: 20000,
+      no: 3,
+    },
+    {
+      typewriterText: 'What experience in the topic area does Adam Chilton have?',
+      duration: 3,
+      answer: answers.A4(),
+      timeOut: 20000,
+      no: 3,
+    },
+    {
+      typewriterText: 'Thank you for reading these questions and answers.',
+      duration: 3,
+      answer: answers.A5(),
+      timeOut: 1000,
+      no: 5,
     },
   ],
   questionNumber: 0,
@@ -77,7 +103,7 @@ export const initialState = {
   questionsSeen: 0,
   questionControls: true,
   automateQuestions: true,
-  showRestOfSite: true, // TODO set false
+  showRestOfSite: false, // TODO set false
 }
 
 const totalQuestionCount = initialState.questions.length
@@ -87,7 +113,7 @@ export const autoUpdateQuestionNumber = (questionNumber, timeOut) => (dispatch) 
   return (questionNumber + 1) < totalQuestionCount
     ? setTimeout(() => {
       dispatch(togglePhoneAnswer(false))
-      dispatch(changeRHSNumber(questionNumber + 1))
+      dispatch(increaseQuestionsSeen())
       return dispatch(increaseQuestionNumber())
     }, timeOut)
     : () => {
@@ -111,16 +137,18 @@ const typewriterReducer = (state = initialState, action) => {
     case SHOW_QUESTION_CONTROLS:
       return { ...state, ...payload, automateQuestions: false }
 
-    case INCREASE_QUESTION_NUMBER:
+    case INCREASE_QUESTION_NUMBER: {
+      const newQuestionsSeen = state.questionsSeen < state.questionNumber ? state.questionNumber : state.questionsSeen
       return state.questionNumber + 1 < state.questions.length
         ? {
-          ...state, questionNumber: state.questionNumber + 1, showPhoneAnswer: false, questionsSeen: 2,
+          ...state, questionNumber: state.questionNumber + 1, showPhoneAnswer: false, questionsSeen: newQuestionsSeen,
         }
         : state
-
+    }
     case DECREASE_QUESTION_NUMBER:
       return { ...state, questionNumber: state.questionNumber - 1, showPhoneAnswer: false }
-
+    case INCREASE_QUESTIONS_SEEN:
+      return { ...state, questionsSeen: state.questionsSeen + 1 }
     default:
       return state
   }
