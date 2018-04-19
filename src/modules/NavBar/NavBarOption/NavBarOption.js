@@ -10,10 +10,10 @@ const activeStyle = {
 const NavBarOption = ({
   className, label, to,
 }) => (
-  <NavLink to={to} href={to} exact activeStyle={activeStyle} className={cx(className, 'col-xs-2', 'col-xs-push-9')} >
-    {label}
-  </NavLink>
-)
+    <NavLink to={to} href={to} exact activeStyle={activeStyle} className={cx(className, 'col-xs-2', 'col-xs-push-7')} >
+      {label}
+    </NavLink>
+  )
 
 NavBarOption.propTypes = {
   className: PropTypes.string.isRequired,

@@ -5,28 +5,28 @@ import { connect } from 'react-redux'
 import { getTypewriterQuestionNumber, getTypewriterQuestions, getPhoneAnswerState } from '../../redux/reducers'
 import Chip from '../Chip/Chip'
 import chipImg from './me.jpg'
-import StarRating from '../StarRating/StarRating';
+import StarRating from '../StarRating/StarRating'
 
 
-
-const answerStyle = css`
+const answerStyle = css `
 padding:4px 16px;
 `
 
-const questionAnswerContainer = css`
+const questionAnswerContainer = css `
 width:100%;
 background-color:#fff;
 padding-top:8px;
 border-radius: 0 3px 3px 0;
 `
 
-const answerText = css`
+const answerText = css `
 font-size:1.3em;
 `
 
 
-
-const PhoneQuestioResponse = ({ className, answer, showPhoneAnswer }) => (showPhoneAnswer
+const PhoneQuestioResponse = ({
+  className, answer, showPhoneAnswer,
+}) => (showPhoneAnswer
   ? (
     <div className={className}>
       <div className={questionAnswerContainer}>
@@ -46,6 +46,7 @@ PhoneQuestioResponse.propTypes = {
   className: PropTypes.string.isRequired,
   answer: PropTypes.node.isRequired,
   showPhoneAnswer: PropTypes.bool.isRequired,
+
 }
 
 PhoneQuestioResponse.defaultProps = {
@@ -78,7 +79,9 @@ DefaultPhoneQuestioResponse.defaultProps = PhoneQuestioResponse.defaultProps
 const mapStateToProps = (state) => {
   const questionNumber = getTypewriterQuestionNumber(state)
   const question = getTypewriterQuestions(state)[questionNumber]
-  return { ...question, key: questionNumber, showPhoneAnswer: getPhoneAnswerState(state) }
+  return {
+    ...question, key: questionNumber, showPhoneAnswer: getPhoneAnswerState(state),
+  }
 }
 
 export default connect(mapStateToProps)(DefaultPhoneQuestioResponse)

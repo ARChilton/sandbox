@@ -13,7 +13,7 @@ text-align:${props => props.textAlign || 'inherit'};
 
 `
 export const H2 = styled('h2') `
-font-family:${props => props.theme.font.fontFamily || 'roboto'};
+font-family:${props => props.fontFamily || props.theme.font.fontFamily || 'roboto'};
 font-size:2em;
 font-weight:${props => props.fontWeight || '400'};
 color:${props => props.color || 'inherit'};
@@ -24,7 +24,7 @@ text-align:${props => props.textAlign || 'inherit'};
 `
 
 export const H3 = styled('h3') `
-font-family:${props => props.theme.font.fontFamily || 'roboto'};
+font-family:${props => props.fontFamily || props.theme.font.fontFamily || 'roboto'};
 font-size: 1.5em;
 margin:4px 0px;
 font-weight:${props => props.fontWeight || '400'};
@@ -36,7 +36,7 @@ text-align:${props => props.textAlign || 'inherit'};
 `
 
 export const H4 = styled('h4') `
-font-family:${props => props.theme.font.fontFamily || 'roboto'};
+font-family:${props => props.fontFamily || props.theme.font.fontFamily || 'roboto'};
 font-size: 1.2em;
 margin:4px 0px;
 font-weight:${props => props.fontWeight || '400'};

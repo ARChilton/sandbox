@@ -3,19 +3,20 @@ import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import { connect } from 'react-redux'
 import DefaultTypewriterText from './TypewriterText/TypewriterText'
-import { getTypewriterQuestionNumber, getTypewriterQuestions, getAutomateQuestionsState } from '../../redux/reducers'
+import { getTypewriterQuestionNumber, getTypewriterQuestions, getAutomateQuestionsState, getShowQuestionsState } from '../../redux/reducers'
 
 
 const TypewriterDiv = ({
-  className, children, typewriterText, duration, delay, no, timeOut, automateQuestions,
-}) =>
+  className, children, typewriterText, duration, delay, no, timeOut, automateQuestions, showQuestions,
+}) => (showQuestions ?
   (
     <div className={className}>
       <DefaultTypewriterText no={no} timeOut={timeOut} duration={duration} delay={delay} typewriterText={typewriterText} automateQuestions={automateQuestions}>
         {children}
       </DefaultTypewriterText>
     </div>
-  )
+  ) : null)
+
 
 TypewriterDiv.propTypes = {
   className: PropTypes.string.isRequired,
@@ -26,6 +27,7 @@ TypewriterDiv.propTypes = {
   no: PropTypes.number,
   timeOut: PropTypes.number,
   automateQuestions: PropTypes.bool.isRequired,
+  showQuestions: PropTypes.bool,
 }
 
 TypewriterDiv.defaultProps = {
@@ -35,12 +37,13 @@ TypewriterDiv.defaultProps = {
   delay: 1.5,
   no: 0,
   timeOut: 15000,
+  showQuestions: true,
 }
 
 const DefaultTypewriterDiv = styled(TypewriterDiv) `
   font-family:'Anonymous Pro', monospace;
   font-size:20px;
-  width:90%;
+  width:96%;
   min-height:40px;
   /* border:1px solid #eee; */
   padding:4px 8px;
@@ -57,7 +60,8 @@ const mapStateToProps = (state) => {
   return {
     ...question,
     key: questionNumber,
-    automateQuestions: getAutomateQuestionsState(state)
+    automateQuestions: getAutomateQuestionsState(state),
+    showQuestions: getShowQuestionsState(state),
   }
 }
 

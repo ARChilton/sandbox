@@ -1,5 +1,5 @@
 import React from 'react'
-import { H2, Li, H3, A } from '../../../../components/Text/Text'
+import { H2, Li, H3, A } from '../../../../../components/Text/Text'
 
 
 export const AddOn0 = () => (

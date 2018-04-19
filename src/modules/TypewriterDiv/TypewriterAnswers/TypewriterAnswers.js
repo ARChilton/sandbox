@@ -1,6 +1,7 @@
 import React from 'react'
 import { P, A, H4 } from '../../../components/Text/Text'
 
+
 export const A0 = () => (
   <div>
     <P>I thought it would be a bit more interesting to introduce myself styled in the way I see Starmind presents information to its users.</P>

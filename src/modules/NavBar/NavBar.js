@@ -13,7 +13,7 @@ const NavBar = ({ className }) => (
           {/* <img src="https://checkpointlive.com/largeLogo.png" alt="Checkpoint Live small logo" /> */}
         </div>
         <NavBarOption to="/starmind" label="Home" />
-        {/* <NavBarOption to="/projects" label="Projects" /> */}
+        <NavBarOption to="/projects" label="Projects" />
       </div>
     </div>
   </div>
