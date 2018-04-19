@@ -96,10 +96,7 @@ export const autoUpdateQuestionNumber = (questionNumber, timeOut) => (dispatch) 
     }
 }
 
-export const firstLoad = () => (dispatch) => {
-  console.log('firstload')
-  return setTimeout(() => dispatch(toggleShowQuestions(true)), 1000)
-}
+export const firstLoad = () => dispatch => setTimeout(() => dispatch(toggleShowQuestions(true)), 1000)
 
 const typewriterReducer = (state = initialState, action) => {
   const { type, payload } = action

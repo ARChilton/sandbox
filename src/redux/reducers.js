@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import typewriter, { getTypewriterTextQuestionNumber, getTypewriterTextQuestions, getShowPhoneAnswerState, getRhsState, getQuestionControlState, getAutomateQuestions, getShowQuestions, getShowRestOfSite } from '../modules/TypewriterDiv/typewriterState'
+import restOfSite, { getDesignImageArray, getDesignImagePreview } from '../Routes/Sandbox/RestOfSite/RestOfSiteState'
 // import { reducer as form } from 'redux-form'
 
 
 export default () => combineReducers({
   router: routerReducer,
   typewriter,
+  restOfSite,
 
   // form,
 })
@@ -28,3 +30,7 @@ export const getAutomateQuestionsState = state => getAutomateQuestions(state.typ
 export const getShowQuestionsState = state => getShowQuestions(state.typewriter)
 
 export const getShowRestOfSiteState = state => getShowRestOfSite(state.typewriter)
+
+export const getDesignImagesArrayState = state => getDesignImageArray(state.restOfSite)
+
+export const getDesignImagePreviewState = state => getDesignImagePreview(state.restOfSite)

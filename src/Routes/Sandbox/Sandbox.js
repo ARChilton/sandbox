@@ -32,6 +32,7 @@ border-bottom: 6px solid ${props => props.theme.color.secondary};
 border-radius:0px;
 background-color:${props => props.theme.color.primary};
 color:#fff;
+margin-bottom:30px;
 `
 
 const Sandbox = ({ showRestOfSite }) => (

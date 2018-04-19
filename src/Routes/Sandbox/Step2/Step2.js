@@ -9,9 +9,9 @@ import RightHandSide from './RightHandSide/RightHandSide'
 import { getShowQuestionControlState, getTypewriterQuestionNumber, getTypewriterQuestions } from '../../../redux/reducers'
 import { increaseQuestionNumber, decreaseQuestionNumber } from '../../../modules/TypewriterDiv/typewriterState'
 import LeftHandSide from './LeftHandSide/LeftHandSide'
-import { LifecycleTypewriterDiv } from '../../../modules/TypewriterDiv/LifecycleTypewriterDiv'
+import { H2 } from '../../../components/Text/Text'
 
-const additionalInfoContainerClass = css`
+const additionalInfoContainerClass = css `
 padding:8px;
 @media(max-width:992px){
   display:none;
@@ -25,7 +25,7 @@ padding-left:4px;
 width:435px;
 align-self:flex-end;
 `
-const deviceContainerContainer = css`
+const deviceContainerContainer = css `
 height:90vh;
 width:535px;
 display:flex;
@@ -34,7 +34,7 @@ align-items:center;
 flex-direction:row;
 `
 
-const buttonContainer = css`
+const buttonContainer = css `
 height:100%;
 width:40px;
 `
@@ -73,6 +73,18 @@ const Chevron = styled('div') `
 const Step2 = ({
   showControlButtons, onClickLeft, onClickRight, questionNumber, questions, className,
 }) => (
+  <div>
+    {questionNumber > 0
+      ? (
+        <H2 style={{
+          textAlign: 'center', fontFamily: 'Kalam', fontWeight: 'bold', marginBottom: '-30px',
+        }}
+        >
+            Create
+        </H2>)
+      : null}
+
+
     <div className={className}>
 
       <div className={cx(additionalInfoContainerClass, 'col-xs-10', 'col-md-3', 'col-lg-4')} style={{ color: '#000' }}>
@@ -97,7 +109,7 @@ const Step2 = ({
 
         <div className={buttonContainer}>
           {showControlButtons && (questionNumber !== (questions - 1)) ?
-            <Button onClick={onClickRight}><Chevron style={{ transform: 'rotate(45deg)', 'margin-top': '-6px' }} /></Button> : null}
+            <Button onClick={onClickRight}><Chevron style={{ transform: 'rotate(45deg)', marginTop: '-6px' }} /></Button> : null}
         </div>
 
       </div>
@@ -106,7 +118,8 @@ const Step2 = ({
         <RightHandSide />
       </div>
     </div>
-  )
+  </div>
+)
 
 Step2.propTypes = {
   showControlButtons: PropTypes.bool.isRequired,
@@ -120,7 +133,7 @@ Step2.propTypes = {
 const DefaultStep2 = styled(Step2) `
 display:flex;
 justify-content:space-evenly;
-align-items:flex-start;
+align-items:center;
 flex-direction:row;
 @media(max-width:992px){
   flex-direction:column;
