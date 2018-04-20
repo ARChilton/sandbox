@@ -103,7 +103,7 @@ export const initialState = {
   questionsSeen: 0,
   questionControls: true,
   automateQuestions: true,
-  showRestOfSite: false,
+  showRestOfSite: true,
 }
 
 const totalQuestionCount = initialState.questions.length

@@ -8,12 +8,14 @@ import images, { BackgroundImg } from '../../../../components/Images/Images'
 import { FadeInContainer } from '../../../../components/Animation/Animation'
 
 
-const RightHandSide = ({ questionsSeen }) => (questionsSeen > 3 ? (
+const RightHandSide = ({ questionsSeen }) => (questionsSeen > 4 ? (
   <FadeInContainer>
-    <ColoredDiv>
-      <H2 textAlign="center" fontFamily="Kalam" fontWeight="bold">Release</H2>
-      <BackgroundImg src={images.management} style={{ width: '100%', height: '550px' }} />
-    </ColoredDiv>
+    <a href="#releaseSection">
+      <ColoredDiv>
+        <H2 textAlign="center" fontFamily="Kalam" fontWeight="bold">Release</H2>
+        <BackgroundImg src={images.management} style={{ width: '100%', height: '550px' }} />
+      </ColoredDiv>
+    </a>
   </FadeInContainer>
 ) : null)
 

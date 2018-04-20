@@ -24,9 +24,11 @@ height:90%;
 padding-left:4px;
 width:435px;
 align-self:flex-end;
+
 `
 const deviceContainerContainer = css`
 height:90vh;
+min-height:670px;
 width:535px;
 display:flex;
 justify-content:space-evenly;
@@ -42,15 +44,18 @@ width:40px;
 const Button = styled('button') `
 border:none;
 background-color:transparent;
-color:rgba(0,0,0,0.2);
+color: ${props => props.theme.color.secondary};
+opacity: 0.7;
 padding:16px;
 height:100%;
 width:100%;
 :focus{
   border:none;
+  outline:none;
 }
 :hover{
-  color:rgba(0,0,0,0.5);
+  color: ${props => props.theme.color.primary};
+  opacity:1;
 }
 `
 
@@ -76,7 +81,7 @@ const Step2 = ({
   (
     <div style={{ minHeight: '40px', width: '100%' }}>
       <div>
-        {questionsSeen > 1
+        {questionsSeen > 4
           ? (
             <H2 style={{
               textAlign: 'center', fontFamily: 'Kalam', fontWeight: 'bold', marginBottom: '-64px', marginTop: '24px',

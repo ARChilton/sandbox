@@ -1,5 +1,5 @@
 import React from 'react'
-import { P, A, H4, Li } from '../../../components/Text/Text'
+import { P, H4, Li } from '../../../components/Text/Text'
 
 
 export const A0 = () => (
@@ -14,7 +14,7 @@ export const A1 = () => (
     <H4>Profession: Web developer</H4>
     <P>I have been involved in front end development for the past 4 and a half years.</P>
     <P>I now specialise in Progressive Web Apps (PWAs) to provide websites which function offline just like apps.</P>
-    <P>I like to utilise the latest technology to create websites like this one and my most recent project <A target="_blank" href="https://checkpointlive.com">checkpointlive.com</A>.</P>
+    <P>I like to utilise the latest technology to create websites like this one and my most recent project checkpointlive.com.</P>
   </div>
 )
 

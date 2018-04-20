@@ -2,15 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { cx } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
+import Theme from '../../../css/theme'
 
 const activeStyle = {
-  borderBottom: 'rgba(121, 134, 203, 0.5) 2px solid',
+  borderBottom: `${Theme.color.navActive} 2px solid`,
 }
 
 const NavBarOption = ({
   className, label, to,
-}) => (
-    <NavLink to={to} href={to} exact activeStyle={activeStyle} className={cx(className, 'col-xs-2', 'col-xs-push-7')} >
+}) =>
+  (
+    <NavLink
+      to={to}
+      href={to}
+      exact
+      activeStyle={activeStyle}
+      className={cx(className, 'col-xs-2', 'col-xs-push-7')}
+    >
       {label}
     </NavLink>
   )
@@ -23,30 +31,31 @@ NavBarOption.propTypes = {
 
 
 const DefaultNavBarOption = styled(NavBarOption) `
-  height:60px;
+  height: 60px;
   /* padding:16px 2px; */
-  color:rgba(0, 0, 0, 0.30);
+  color: rgba(0, 0, 0, 0.30);
   font-weight: bold;
-  font-size:14px;
+  font-size: 14px;
   line-height: 60px;
   text-align: center;
   text-decoration: none;
-  &:hover{
-    border-bottom:${props => props.theme.color.primary} 2px solid;
-    color:${props => props.theme.color.primary};
+  :hover{
+    border-bottom: ${props => props.theme.color.primary} 2px solid;
+    color: ${props => props.theme.color.primary};
     text-decoration: none;
   }
-  &:active{
-    border-bottom:${props => props.theme.color.primary} 2px solid;
-    color:${props => props.theme.color.primary};
+  :active{
+    border-bottom: ${props => props.theme.color.primary} 2px solid;
+    color: ${props => props.theme.color.primary};
     background-color: ${props => props.theme.color.navigationActive};
     text-decoration: none;
   }
-  &:visited{
-    text-decoration: none;
+  :visited{
+  text-decoration: none;
   }
-  &:focus{
-    text-decoration:none;
+  :focus{
+  text-decoration: none;
+  outline: none;
   }
 `
 

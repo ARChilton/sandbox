@@ -4,7 +4,7 @@ export const H1 = styled('h1') `
 font-family:${props => props.fontFamily || props.theme.font.fontFamily || 'roboto'};
 font-size:3em;
 font-weight:${props => props.fontWeight || '400'};
-color:${props => props.color || 'inherit'};
+color:${props => props.color || props.theme.color.h1 || 'inherit'};
 text-align:${props => props.textAlign || 'inherit'};
 @media(max-width:768px){
   font-size:2.5em;
@@ -16,7 +16,7 @@ export const H2 = styled('h2') `
 font-family:${props => props.fontFamily || props.theme.font.fontFamily || 'roboto'};
 font-size:2em;
 font-weight:${props => props.fontWeight || '400'};
-color:${props => props.color || 'inherit'};
+color:${props => props.color || props.theme.color.h2 || 'inherit'};
 text-align:${props => props.textAlign || 'inherit'};
 @media(max-width:768px){
   font-size:1.6em;
@@ -28,7 +28,7 @@ font-family:${props => props.fontFamily || props.theme.font.fontFamily || 'robot
 font-size: 1.5em;
 margin:4px 0px;
 font-weight:${props => props.fontWeight || '400'};
-color:${props => props.color || 'inherit'};
+color:${props => props.color || props.theme.color.h3 || 'inherit'};
 text-align:${props => props.textAlign || 'inherit'};
 @media(max-width:768px){
   font-size:1.3em;
@@ -40,7 +40,7 @@ font-family:${props => props.fontFamily || props.theme.font.fontFamily || 'robot
 font-size: 1.2em;
 margin:4px 0px;
 font-weight:${props => props.fontWeight || '400'};
-color:${props => props.color || 'inherit'};
+color:${props => props.color || props.theme.color.h4 || 'inherit'};
 text-align:${props => props.textAlign || 'inherit'};
 @media(max-width:768px){
   font-size:1.1em;
@@ -48,7 +48,7 @@ text-align:${props => props.textAlign || 'inherit'};
 `
 
 export const P = styled('p') `
-font-family:${props => props.theme.font.fontFamily || 'roboto'};
+font-family:${props => props.fontFamily || props.theme.font.fontFamily || 'roboto'};
 font-size: 16px;
 color:${props => props.color || 'inherit'};
 text-align:${props => props.textAlign || 'inherit'};

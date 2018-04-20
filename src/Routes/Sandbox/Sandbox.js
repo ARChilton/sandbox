@@ -15,10 +15,9 @@ import { getShowRestOfSiteState } from '../../redux/reducers'
 
 const FirstSection = styled(Section) `
 padding:0px;
-border-bottom:6px solid ${props => props.theme.color.primary};
+border-bottom:6px solid ${props => props.theme.color.secondary};
 @media(max-width:768px){
   padding-top:2vh;
-  padding-bottom:2vh;
 }
 `
 
@@ -32,21 +31,20 @@ border-bottom: 6px solid ${props => props.theme.color.secondary};
 border-radius:0px;
 background-color:${props => props.theme.color.primary};
 color:#fff;
-/* margin-bottom:30px; */
 `
 
-const Sandbox = ({ showRestOfSite }) => (
-  <div>
+const Sandbox = ({ showRestOfSite, className }) => (
+  <div className={className}>
     <Helmet
       title="Starmind"
     />
     <div className="row">
       <TopBanner className="col-xs-12">
-        <H1 textAlign="center"><HighlightLetters>A</HighlightLetters>dam <HighlightLetters>C</HighlightLetters>hilton BSc</H1>
+        <H1 fontFace="titillium web" textAlign="center" style={{ lineHeight: '1.5em' }}><HighlightLetters>A</HighlightLetters>dam <HighlightLetters>C</HighlightLetters>hilton</H1>
       </TopBanner>
     </div>
     <div className="row">
-      <FirstSection bgColor="rgba(0,0,0,0.01)" className="col-xs-12">
+      <FirstSection className="col-xs-12">
         <Step2 />
       </FirstSection>
     </div>
@@ -63,11 +61,15 @@ const Sandbox = ({ showRestOfSite }) => (
 
 Sandbox.propTypes = {
   showRestOfSite: PropTypes.bool.isRequired,
+  className: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = state => ({
   showRestOfSite: getShowRestOfSiteState(state),
 })
 
+const DefaultSandbox = styled(Sandbox) `
+background-color: ${props => props.theme.color.background || 'rgba(0,0,0,0.01)'};
+`
 
-export default connect(mapStateToProps)(Sandbox)
+export default connect(mapStateToProps)(DefaultSandbox)
