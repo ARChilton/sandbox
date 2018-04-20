@@ -1,31 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { getRHSState } from '../../../../redux/reducers'
+import { getQuestionsSeenState } from '../../../../redux/reducers'
 import ColoredDiv from '../../../../components/ColoredDiv/ColoredDiv'
 import { H2 } from '../../../../components/Text/Text'
 import images, { BackgroundImg } from '../../../../components/Images/Images'
+import { FadeInContainer } from '../../../../components/Animation/Animation'
 
 
-const LeftHandSide = ({ lhs }) => (
-  <div>
-    {
-      lhs > 2
-        ? (
-          <ColoredDiv>
-            <H2 textAlign="center" fontFamily="Kalam" fontWeight="bold">Design</H2>
-            <BackgroundImg src={images.starMindDemoMockup} style={{ width: '100%', height: '550px' }} />
-          </ColoredDiv>
-        ) : null
-    }
-  </div>
-)
+const LeftHandSide = ({ questionsSeen }) => (questionsSeen > 2
+  ? (
+    <FadeInContainer>
+      <ColoredDiv>
+        <H2 textAlign="center" fontFamily="Kalam" fontWeight="bold">Design</H2>
+        <BackgroundImg src={images.starMindDemoMockup} style={{ width: '100%', height: '550px' }} />
+      </ColoredDiv>
+    </FadeInContainer>
+  ) : null)
+
 
 LeftHandSide.propTypes = {
-  lhs: PropTypes.number.isRequired,
+  questionsSeen: PropTypes.number.isRequired,
 }
 const mapStateToProps = state => ({
-  lhs: getRHSState(state),
+  questionsSeen: getQuestionsSeenState(state),
 })
 
 

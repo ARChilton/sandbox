@@ -65,14 +65,14 @@ export const initialState = {
       typewriterText: 'Who is Adam Chilton?',
       duration: 1,
       answer: answers.A1(),
-      timeOut: 25000,
+      timeOut: 18000,
       no: 1,
     },
     {
       typewriterText: 'What services does Adam Chilton provide?',
       duration: 3,
       answer: answers.A2(),
-      timeOut: 20000,
+      timeOut: 18000,
       no: 2,
     },
     {
@@ -103,23 +103,28 @@ export const initialState = {
   questionsSeen: 0,
   questionControls: true,
   automateQuestions: true,
-  showRestOfSite: false, // TODO set false
+  showRestOfSite: false,
 }
 
 const totalQuestionCount = initialState.questions.length
+let autoTimeOut = null
 
 export const autoUpdateQuestionNumber = (questionNumber, timeOut) => (dispatch) => {
   dispatch(togglePhoneAnswer(true))
-  return (questionNumber + 1) < totalQuestionCount
-    ? setTimeout(() => {
+  clearTimeout(autoTimeOut) // clears the previous timers
+  const updater = questionNumber === (totalQuestionCount - 1)
+    ? Promise.resolve().then(() => {
+      dispatch(showQuestionControls(true))
+      return dispatch(toggleShowRestOfSite(true))
+    })
+
+    : autoTimeOut = setTimeout(() => {
       dispatch(togglePhoneAnswer(false))
       dispatch(increaseQuestionsSeen())
       return dispatch(increaseQuestionNumber())
     }, timeOut)
-    : () => {
-      dispatch(showQuestionControls(true))
-      return dispatch(toggleShowRestOfSite(true))
-    }
+
+  return updater
 }
 
 export const firstLoad = () => dispatch => setTimeout(() => dispatch(toggleShowQuestions(true)), 1000)
@@ -138,7 +143,8 @@ const typewriterReducer = (state = initialState, action) => {
       return { ...state, ...payload, automateQuestions: false }
 
     case INCREASE_QUESTION_NUMBER: {
-      const newQuestionsSeen = state.questionsSeen < state.questionNumber ? state.questionNumber : state.questionsSeen
+      window.clearTimeout(autoTimeOut)
+      const newQuestionsSeen = state.questionsSeen < state.questionNumber + 1 ? state.questionNumber + 1 : state.questionsSeen
       return state.questionNumber + 1 < state.questions.length
         ? {
           ...state, questionNumber: state.questionNumber + 1, showPhoneAnswer: false, questionsSeen: newQuestionsSeen,
@@ -160,7 +166,7 @@ export const getTypewriterTextQuestions = state => state.questions
 
 export const getShowPhoneAnswerState = state => state.showPhoneAnswer
 
-export const getRhsState = state => state.questionsSeen
+export const getQuestionsSeen = state => state.questionsSeen
 
 export const getQuestionControlState = state => state.questionControls
 
