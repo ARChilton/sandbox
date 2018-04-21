@@ -2,35 +2,36 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { BackgroundImg as BGI } from '../../../../components/Images/Images'
-import { changeDesignImage } from '../RestOfSiteState'
+import { changePortfolioImage } from '../RestOfSiteState'
 
-const BackgroundImg = ({
-  id, src, className, onClick, bgColor,
+const PortfolioImg = ({
+  id, src, className, onClick, bgColor, bgSize,
 }) => (
   // <div className={className}>
-  <BGI className={className} src={src} id={id} onClick={onClick} bgColor={bgColor} />
+  <BGI className={className} src={src} id={id} onClick={onClick} bgColor={bgColor} bgSize={bgSize} />
   // </div>
 )
 
-BackgroundImg.propTypes = {
+PortfolioImg.propTypes = {
   id: PropTypes.number,
   src: PropTypes.string.isRequired,
   className: PropTypes.string,
   onClick: PropTypes.func,
   bgColor: PropTypes.string,
-
+  bgSize: PropTypes.string,
 }
 
-BackgroundImg.defaultProps = {
+PortfolioImg.defaultProps = {
   id: 999,
   className: '',
   onClick: null,
   bgColor: 'transparent',
+  bgSize: 'contain',
 }
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: () => dispatch(changeDesignImage(ownProps.id)),
+  onClick: () => dispatch(changePortfolioImage(ownProps.id)),
 })
 
-export default connect(null, mapDispatchToProps)(BackgroundImg)
+export default connect(null, mapDispatchToProps)(PortfolioImg)

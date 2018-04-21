@@ -1,53 +1,56 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../../../css/devices.css'
 import IPhoneXStatusBar from './IPhoneXStatusBar/IPhoneXStatusBar'
 import IPhoneXKeyboard from './IPhoneXKeyboard/IPhoneXKeyboard'
 import IPhoneXToolbar from './IPhoneXToolbar/IPhoneXToolbar'
+import { IPhoneXDevice, IPhoneXNotch, IPhoneXSleepButton, IPhoneXCamera, IPhoneXSpeaker, IPhoneXTopBar, IPhoneXBottomBar, IPhoneXVolumeButton, IPhoneXOverflow, IPhoneXShadowTopRight, IPhoneXShadowTopLeft, IPhoneXShadowBottomRight, IPhoneXShadowBottomLeft, IPhoneXInnerShadow, IPhoneXScreen } from './IPhoneXComponents/IPhoneXComponents'
 
-const IPhoneX = ({ children, keyboard, toolbarTitle }) => (
-  <div style={{ margin: 'auto' }}>
+const IPhoneX = ({
+  children, keyboard, toolbarTitle, className,
+}) =>
+  (
+    <div style={{ margin: 'auto' }} className={className}>
+      <IPhoneXDevice>
+        <IPhoneXNotch>
+          <IPhoneXCamera />
+          <IPhoneXSpeaker />
+        </IPhoneXNotch>
+        <IPhoneXTopBar />
+        <IPhoneXSleepButton />
+        <IPhoneXBottomBar />
+        <IPhoneXVolumeButton />
+        <IPhoneXOverflow>
+          <IPhoneXShadowTopRight />
+          <IPhoneXShadowTopLeft />
+          <IPhoneXShadowBottomRight />
+          <IPhoneXShadowBottomLeft />
+        </IPhoneXOverflow>
+        <IPhoneXInnerShadow />
+        <IPhoneXScreen>
+          <IPhoneXStatusBar />
+          <IPhoneXToolbar centerChildren={toolbarTitle} />
+          {children}
 
-    <div className="marvel-device iphone-x" >
-      <div className="notch">
-        <div className="camera" />
-        <div className="speaker" />
-      </div>
-      <div className="top-bar" />
-      <div className="sleep" />
-      <div className="bottom-bar" />
-      <div className="volume" />
-      <div className="overflow">
-        <div className="shadow shadow--tr" />
-        <div className="shadow shadow--tl" />
-        <div className="shadow shadow--br" />
-        <div className="shadow shadow--bl" />
-      </div>
-      <div className="inner-shadow" />
-      <div className="screen">
-        <IPhoneXStatusBar />
-        <IPhoneXToolbar centerChildren={toolbarTitle} />
+          {keyboard ? <IPhoneXKeyboard /> : null}
+        </IPhoneXScreen>
+      </IPhoneXDevice>
 
-        {/* <div style={keyboard ? { 'max-height': '458px', height: '100%', 'overflow-y': 'scroll' } : ''}> */}
-        {children}
-        {/* </div> */}
-        {keyboard ? <IPhoneXKeyboard /> : null}
-      </div>
     </div>
 
-  </div>
-)
+  )
 
 IPhoneX.propTypes = {
   children: PropTypes.node,
   keyboard: PropTypes.bool,
   toolbarTitle: PropTypes.node,
+  className: PropTypes.string,
 }
 
 IPhoneX.defaultProps = {
   children: 'Nothing to see here',
   keyboard: false,
   toolbarTitle: null,
+  className: null,
 }
 
 export default IPhoneX

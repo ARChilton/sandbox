@@ -1,16 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../../../css/devices.css'
+import { MacBookDevice, MacBookTopBar, MacBookBottomBar, MacBookCamera, GeneralDeviceScreen, MacBookContainer, PhoneForSmallScreens } from './MacBookComponents/MacBookComponents'
+
 
 const MacBook = ({ children }) => (
-  <div className="marvel-device macbook">
-    <div className="top-bar" />
-    <div className="camera" />
-    <div className="screen">
+  <MacBookContainer>
+    <MacBookDevice>
+      <MacBookTopBar />
+      <MacBookCamera />
+      <GeneralDeviceScreen>
+        {children}
+      </GeneralDeviceScreen>
+      <MacBookBottomBar />
+    </MacBookDevice>
+    <PhoneForSmallScreens>
       {children}
-    </div>
-    <div className="bottom-bar" />
-  </div>
+    </PhoneForSmallScreens>
+  </MacBookContainer>
 )
 
 

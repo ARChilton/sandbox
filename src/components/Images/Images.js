@@ -4,7 +4,8 @@ import styled from 'react-emotion'
 import starMindDemoMockup from './starmind-demo-mockup.png'
 import management from './management.png'
 import websiteDesign from './website-design.png'
-import exportLayerList from './export-layer-list.png'
+import flix from './flixpremiere-home.png'
+import websiteDesign2 from './website-design-iteration-2.png'
 
 export const BackgroundImg = styled('div') `
 width:100%;
@@ -12,7 +13,8 @@ height:100%;
 background-image: url(${props => props.src});
 background-repeat: no-repeat;
 background-position: center;
-background-size:contain;
+background-size:${props => props.bgSize || 'contain'};
+background-color:${props => props.bgColor || 'transparent'};
 `
 
 export const StarMindDemoMockupImg = ({ className, style }) => (
@@ -75,7 +77,8 @@ const images = {
   starMindDemoMockup,
   management,
   websiteDesign,
-  exportLayerList,
+  flix,
+  websiteDesign2,
 }
 
 export default images

@@ -22,8 +22,8 @@ export const A2 = () => (
   <div>
     <P>I can provide all or a combination of:</P>
     <ul>
-      <Li>Website / app design</Li>
-      <Li>Website building</Li>
+      <Li>Website / webapp design</Li>
+      <Li>Website / webapp building</Li>
       <Li>Website maintainance</Li>
       <Li>Search Engine Optimisation (SEO)</Li>
     </ul>

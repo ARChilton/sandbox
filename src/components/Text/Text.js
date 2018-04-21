@@ -60,4 +60,7 @@ font-size:16px;
 
 export const A = styled('a') `
 color:${props => props.theme.color.primary};
+:hover{
+  color:${props => props.theme.color.secondary};
+}
 `
