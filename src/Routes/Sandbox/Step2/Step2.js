@@ -6,7 +6,7 @@ import DefaultTypewriterDiv from '../../../modules/TypewriterDiv/TypewriterDiv'
 import DefaultPhoneQuestioResponse from '../../../modules/PhoneQuestionResponse/PhoneQuestionResponse'
 import IPhoneX from '../../../modules/devices/IPhoneX/IPhoneX'
 import RightHandSide from './RightHandSide/RightHandSide'
-import { getShowQuestionControlState, getTypewriterQuestionNumber, getTypewriterQuestions, getQuestionsSeenState } from '../../../redux/reducers'
+import { getShowQuestionControlState, getTypewriterQuestionNumber, getTypewriterQuestions, getQuestionsSeenState, getdesignCreateReleaseShowAfterState } from '../../../redux/reducers'
 import { increaseQuestionNumber, decreaseQuestionNumber } from '../../../modules/TypewriterDiv/typewriterState'
 import LeftHandSide from './LeftHandSide/LeftHandSide'
 import { H2 } from '../../../components/Text/Text'
@@ -21,15 +21,15 @@ padding:8px;
 const DeviceContainer = styled('div') `
 overflow-y:hidden;
 height:90%;
-padding-left:4px;
-width:435px;
+padding:0 4px;
+width:100%;
 align-self:flex-end;
 
 `
 const deviceContainerContainer = css`
 height:90vh;
 min-height:670px;
-width:535px;
+/* width:535px; */
 display:flex;
 justify-content:space-evenly;
 align-items:center;
@@ -39,6 +39,7 @@ flex-direction:row;
 const buttonContainer = css`
 height:100%;
 width:40px;
+min-width:40px;
 `
 
 const Button = styled('button') `
@@ -76,12 +77,12 @@ const Chevron = styled('div') `
 `
 
 const Step2 = ({
-  showControlButtons, onClickLeft, onClickRight, questionNumber, questions, className, questionsSeen,
+  showControlButtons, onClickLeft, onClickRight, questionNumber, questions, className, questionsSeen, designCreateReleaseShowAfter,
 }) =>
   (
     <div style={{ minHeight: '40px', width: '100%' }}>
       <div>
-        {questionsSeen > 4
+        {questionsSeen > designCreateReleaseShowAfter
           ? (
             <H2 style={{
               textAlign: 'center', fontFamily: 'Kalam', fontWeight: 'bold', marginBottom: '-64px', marginTop: '24px',
@@ -107,7 +108,7 @@ const Step2 = ({
           </div>
 
           <DeviceContainer >
-            <IPhoneX toolbarTitle="Ask a question">
+            <IPhoneX toolbarTitle="Ask a question" toolbar>
               <DefaultTypewriterDiv />
               {/* <LifecycleTypewriterDiv /> */}
               <div style={{ borderBottom: '8px solid #efefef', width: '100%' }} />
@@ -137,6 +138,7 @@ Step2.propTypes = {
   questions: PropTypes.number.isRequired,
   className: PropTypes.string.isRequired,
   questionsSeen: PropTypes.number.isRequired,
+  designCreateReleaseShowAfter: PropTypes.number.isRequired,
 }
 
 const DefaultStep2 = styled(Step2) `
@@ -154,6 +156,7 @@ const mapStateToProps = state => ({
   questionNumber: getTypewriterQuestionNumber(state),
   questions: getTypewriterQuestions(state).length,
   questionsSeen: getQuestionsSeenState(state),
+  designCreateReleaseShowAfter: getdesignCreateReleaseShowAfterState(state),
 })
 
 const mapDispatchToProps = dispatch => ({

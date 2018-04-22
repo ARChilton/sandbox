@@ -1,7 +1,7 @@
 import styled from 'react-emotion'
 import IPhoneX from '../../IPhoneX/IPhoneX'
 
-const laptopPhoneSwitchScreenWidth = 1300
+export const laptopPhoneSwitchScreenWidth = 1300
 
 export const PhoneForSmallScreens = styled(IPhoneX) `
 @media(min-width: ${`${laptopPhoneSwitchScreenWidth}px`}){

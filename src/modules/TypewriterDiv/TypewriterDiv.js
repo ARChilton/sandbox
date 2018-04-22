@@ -7,11 +7,11 @@ import { getTypewriterQuestionNumber, getTypewriterQuestions, getAutomateQuestio
 
 
 const TypewriterDiv = ({
-  className, children, typewriterText, duration, delay, no, timeOut, automateQuestions, showQuestions,
+  className, children, typewriterText, no, timeOut, automateQuestions, showQuestions,
 }) => (showQuestions ?
   (
     <div className={className}>
-      <DefaultTypewriterText no={no} timeOut={timeOut} duration={duration} delay={delay} typewriterText={typewriterText} automateQuestions={automateQuestions}>
+      <DefaultTypewriterText no={no} timeOut={timeOut} typewriterText={typewriterText} automateQuestions={automateQuestions}>
         {children}
       </DefaultTypewriterText>
     </div>
@@ -22,8 +22,6 @@ TypewriterDiv.propTypes = {
   className: PropTypes.string.isRequired,
   children: PropTypes.node,
   typewriterText: PropTypes.string,
-  duration: PropTypes.number,
-  delay: PropTypes.number,
   no: PropTypes.number,
   timeOut: PropTypes.number,
   automateQuestions: PropTypes.bool.isRequired,
@@ -33,8 +31,6 @@ TypewriterDiv.propTypes = {
 TypewriterDiv.defaultProps = {
   children: null,
   typewriterText: null,
-  duration: 2,
-  delay: 1.5,
   no: 0,
   timeOut: 15000,
   showQuestions: true,

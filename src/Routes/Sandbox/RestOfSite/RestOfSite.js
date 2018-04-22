@@ -6,16 +6,21 @@ import { H2, P, H3, A } from '../../../components/Text/Text'
 import ColoredDiv from '../../../components/ColoredDiv/ColoredDiv'
 import Hr, { HrBottomOnly, HrNoLineOneWayOnly } from '../../../components/Hr/Hr'
 import BackgroundImg from './BackgroundImg/BackgroundImg'
-import { getDesignImagesArrayState, getDesignImagePreviewState, getPortfolioArrayState, getPortfolioPreviewState } from '../../../redux/reducers'
+import { getDesignImagesArrayState, getDesignImagePreviewState, getPortfolioArrayState, getPortfolioPreviewState, getSearchEngineArrayState, getSearchEngineInputState } from '../../../redux/reducers'
 import MacBook from '../../../modules/devices/MacBook/MacBook'
 import Iframe from '../../../components/IFrame/Iframe'
 import PortfolioImg from './PortfolioImg/PortfolioImg'
 import { BackgroundImg as BGI } from '../../../components/Images/Images'
+import Create from './Create/Create'
+import SpinningArrows from './SpinningArrows/SpinningArrows'
+import SearchEngine from './SearchEngine/SearchEngine'
+import { phoneSurrondToScreenOnlySwitch } from '../../../modules/devices/IPhoneX/IPhoneXComponents/IPhoneXComponents'
+import { laptopPhoneSwitchScreenWidth } from '../../../modules/devices/MacBook/MacBookComponents/MacBookComponents'
 
 
 const FlexContainer = styled('div') `
 display:flex;
-justify-content:space-between;
+justify-content:space-around;
 align-items:center;
 flex-direction:row;
 width:100%;
@@ -61,6 +66,11 @@ padding: 30px 34px;
 text-align: justify;
 background-color: ${props => props.theme.color.primary};
 color: #fff;
+margin-top:6vh;
+margin-bottom:6vh;
+@media(max-width:992px){
+  order:2;
+}
 `
 
 const smallScreenHide = css`
@@ -74,10 +84,20 @@ const smallScreenShow = css`
   display: none;
 }
 `
+const iframeSizeChanges = css`
+min-height:610px;
+@media(min-width:${`${phoneSurrondToScreenOnlySwitch}px`}){
+  height:96%;
+}
 
+@media(min-width:${`${laptopPhoneSwitchScreenWidth}px`}){
+  min-height:600px;
+  height:100%;
+}
+`
 
 const RestOfSite = ({
-  designImages, designImagePreview, portfolio, portfolioPreview,
+  designImages, designImagePreview, portfolio, portfolioPreview, searchEngine, searchEngineInput,
 }) =>
   (
     <div>
@@ -110,11 +130,14 @@ const RestOfSite = ({
         <Hr />
       </div>
       <FlexContainer className="row" id="createSection">
+        <div className="col-md-4 col-xs-10">
+          <Create />
+        </div>
         <div className="col-md-6 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>Create</H20emMarginTop>
             <P>While I {"don't"} have decades of front end web development I do have experience in the latest technologies, most of which have only exisited in the last 3 - 4 years, so there are very few individuals with more than a year or two of experience.</P>
-            <P>My favoured website building technology is to use the React framework, this was created and maintained by Facebook. The benefits of using this technology is that the whole website is built from reusable building blocks and while it looks and acts like any other website it is in fact a single page enabling lightning fast page transfers.</P>
+            <P>My favoured website building technology is to use the React framework, this was created and maintained by Facebook. The benefits of using this technology is that the whole website is built from reusable building blocks and while it looks and acts like any other website it is in fact a single page enabling lightning fast page transfers and updates, such as the ones that reveal aspects of this website.</P>
             <P>This {"isn't"} the only technology I am familiar with, I have also created websites in a more traditional sense or using Wordpress.</P>
             <P>This demonstration is a React website.</P>
           </ColouredBoxes>
@@ -132,12 +155,20 @@ const RestOfSite = ({
             <P>In the case of Starmind, if I were to update your website I would look to update page by page and by alike components, such as the navigation bar as to maintain consistency across the website.</P>
           </ColouredBoxes>
         </div>
-        <div className="col-xs-4" />
+        <div className="col-xs-4" style={{ order: '1' }}>
+          <SpinningArrows />
+        </div>
       </FlexContainer>
       <div className="col-xs-12">
         <Hr />
       </div>
       <FlexContainer className="row" id="seoSection">
+        <div className="col-md-4 col-xs-12">
+          <SearchEngine no={searchEngineInput}>
+            {searchEngine[searchEngineInput]}
+          </SearchEngine>
+
+        </div>
         <div className="col-md-6 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>SEO</H20emMarginTop>
@@ -164,7 +195,7 @@ const RestOfSite = ({
         </H3>
         <MacBook>
           {portfolio[portfolioPreview].iframe === true
-            ? <Iframe src={portfolio[portfolioPreview].src} />
+            ? <Iframe src={portfolio[portfolioPreview].src} className={iframeSizeChanges} />
             : <BGI src={portfolio[portfolioPreview].imgSrc} bgSize="cover" />
           }
         </MacBook>
@@ -191,6 +222,8 @@ RestOfSite.propTypes = {
   designImagePreview: PropTypes.number.isRequired,
   portfolio: PropTypes.arrayOf(PropTypes.object).isRequired,
   portfolioPreview: PropTypes.number.isRequired,
+  searchEngine: PropTypes.arrayOf(PropTypes.string).isRequired,
+  searchEngineInput: PropTypes.number.isRequired,
 }
 
 const mapStateToProps = state => ({
@@ -198,6 +231,8 @@ const mapStateToProps = state => ({
   designImagePreview: getDesignImagePreviewState(state),
   portfolio: getPortfolioArrayState(state),
   portfolioPreview: getPortfolioPreviewState(state),
+  searchEngine: getSearchEngineArrayState(state),
+  searchEngineInput: getSearchEngineInputState(state),
 })
 
 export default connect(mapStateToProps)(RestOfSite)

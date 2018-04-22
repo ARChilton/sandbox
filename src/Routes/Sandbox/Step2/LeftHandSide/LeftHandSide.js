@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { getQuestionsSeenState } from '../../../../redux/reducers'
+import { getQuestionsSeenState, getdesignCreateReleaseShowAfterState } from '../../../../redux/reducers'
 import ColoredDiv from '../../../../components/ColoredDiv/ColoredDiv'
 import { H2 } from '../../../../components/Text/Text'
 import images, { BackgroundImg } from '../../../../components/Images/Images'
 import { FadeInContainer } from '../../../../components/Animation/Animation'
 
 
-const LeftHandSide = ({ questionsSeen }) => (questionsSeen > 4
+const LeftHandSide = ({ questionsSeen, designCreateReleaseShowAfter }) => (questionsSeen > designCreateReleaseShowAfter
   ? (
     <FadeInContainer>
       <a href="#designSection">
@@ -23,9 +23,11 @@ const LeftHandSide = ({ questionsSeen }) => (questionsSeen > 4
 
 LeftHandSide.propTypes = {
   questionsSeen: PropTypes.number.isRequired,
+  designCreateReleaseShowAfter: PropTypes.number.isRequired,
 }
 const mapStateToProps = state => ({
   questionsSeen: getQuestionsSeenState(state),
+  designCreateReleaseShowAfter: getdesignCreateReleaseShowAfterState(state),
 })
 
 

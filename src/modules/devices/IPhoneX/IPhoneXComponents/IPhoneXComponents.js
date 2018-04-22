@@ -1,4 +1,16 @@
 import styled from 'react-emotion'
+import SmallScreenIPhoneX from './SmallScreenIPhoneX/SmallScreenIPhoneX'
+
+export const phoneSurrondToScreenOnlySwitch = 500
+
+export const ScreenOnlyIPhoneX = styled(SmallScreenIPhoneX) `
+width:100%;
+min-width:276px;
+height:100%;
+@media(min-width:${`${phoneSurrondToScreenOnlySwitch}px`}){
+  display: none;
+}
+`
 
 export const IPhoneXDevice = styled('div') `
   label:IPhoneX;
@@ -7,6 +19,7 @@ export const IPhoneXDevice = styled('div') `
   -webkit-box-sizing: content-box !important;
   box-sizing: content-box !important;
   width: 375px;
+  max-width:375px;
   height: 812px;
   padding: 26px;
   /* background: #fdfdfd; */
@@ -14,8 +27,7 @@ export const IPhoneXDevice = styled('div') `
   -webkit-box-shadow: inset 0 0 11px 0 black;
   box-shadow: inset 0 0 11px 0 black;
   border-radius: 66px;
-
-
+  
   :before{
     width: calc(100% - 10px);
     height: calc(100% - 10px);
@@ -27,6 +39,17 @@ export const IPhoneXDevice = styled('div') `
     background: black;
     z-index: 1
   }
+`
+
+export const IPhoneXDisplayNoneForSmallDevices = styled(IPhoneXDevice) `
+@media(max-width:${`${phoneSurrondToScreenOnlySwitch - 1}px`}){
+    display:none;
+  }
+`
+
+export const IPhoneXThinDevice = styled(IPhoneXDevice) `
+width:300px;
+height:690px;
 `
 
 export const IPhoneXOverflow = styled('div') `
@@ -50,16 +73,19 @@ export const IPhoneXShadow = styled('div') `
 `
 
 export const IPhoneXShadowTopLeft = styled('div') `
+label:ShadowTopLeft;
   top: -20px;
   left: -20px;
 `
 
 export const IPhoneXShadowTopRight = styled('div') `
+label:ShadowTopRight;
   top: -20px;
   right: -20px;
 `
 
 export const IPhoneXShadowBottomLeft = styled('div') `
+  label:ShadowBottomLeft;
   bottom: -20px;
   left: -20px;
 `
@@ -98,6 +124,7 @@ export const IPhoneXScreen = styled('div') `
   width: 100%;
   position: relative;
   height: 100%;
+  min-height:640px;
   z-index: 3;
   border-radius: 40px;
   background: white;
@@ -172,7 +199,7 @@ export const IPhoneXCamera = styled('div') `
   top: 9px;
   border-radius: 100%;
   position: absolute;
-  left: 154px;
+  left: 75%;
   background: #0d4d71;
 `
 

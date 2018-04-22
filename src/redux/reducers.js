@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import typewriter, { getTypewriterTextQuestionNumber, getTypewriterTextQuestions, getShowPhoneAnswerState, getQuestionsSeen, getQuestionControlState, getAutomateQuestions, getShowQuestions, getShowRestOfSite } from '../modules/TypewriterDiv/typewriterState'
-import restOfSite, { getDesignImageArray, getDesignImagePreview, getPortfolioArray, getPortfolioPreview } from '../Routes/Sandbox/RestOfSite/RestOfSiteState'
+import typewriter, { getTypewriterTextQuestionNumber, getTypewriterTextQuestions, getShowPhoneAnswerState, getQuestionsSeen, getQuestionControlState, getAutomateQuestions, getShowQuestions, getShowRestOfSite, getdesignCreateReleaseShowAfter } from '../modules/TypewriterDiv/typewriterState'
+import restOfSite, { getDesignImageArray, getDesignImagePreview, getPortfolioArray, getPortfolioPreview, getSearchEngineArray, getSearchEngineInput } from '../Routes/Sandbox/RestOfSite/RestOfSiteState'
 // import { reducer as form } from 'redux-form'
 
 
@@ -25,6 +25,8 @@ export const getPhoneAnswerState = state => getShowPhoneAnswerState(state.typewr
 
 export const getQuestionsSeenState = state => getQuestionsSeen(state.typewriter)
 
+export const getdesignCreateReleaseShowAfterState = state => getdesignCreateReleaseShowAfter(state.typewriter)
+
 export const getShowQuestionControlState = state => getQuestionControlState(state.typewriter)
 
 export const getAutomateQuestionsState = state => getAutomateQuestions(state.typewriter)
@@ -42,3 +44,7 @@ export const getDesignImagePreviewState = state => getDesignImagePreview(state.r
 export const getPortfolioArrayState = state => getPortfolioArray(state.restOfSite)
 
 export const getPortfolioPreviewState = state => getPortfolioPreview(state.restOfSite)
+
+export const getSearchEngineArrayState = state => getSearchEngineArray(state.restOfSite)
+
+export const getSearchEngineInputState = state => getSearchEngineInput(state.restOfSite)

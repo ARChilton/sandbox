@@ -6,6 +6,8 @@ import management from './management.png'
 import websiteDesign from './website-design.png'
 import flix from './flixpremiere-home.png'
 import websiteDesign2 from './website-design-iteration-2.png'
+import searchEngine from './search-engine.png'
+import sketchyInputBox from './sketchy-input-box.png'
 
 export const BackgroundImg = styled('div') `
 width:100%;
@@ -79,6 +81,8 @@ const images = {
   websiteDesign,
   flix,
   websiteDesign2,
+  searchEngine,
+  sketchyInputBox,
 }
 
 export default images

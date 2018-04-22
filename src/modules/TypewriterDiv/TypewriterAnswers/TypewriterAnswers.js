@@ -1,11 +1,11 @@
 import React from 'react'
-import { P, H4, Li } from '../../../components/Text/Text'
+import { P, H4 } from '../../../components/Text/Text'
 
 
 export const A0 = () => (
   <div>
     <P>I thought it would be a bit more interesting to introduce myself styled in the way I see Starmind presents information to its users.</P>
-    <P>The phone screen will cycle through some basic questions but also represents a possible method we could use for explaining to your users what StarMind is as well as how it works.</P>
+    <P>The phone screen will cycle through some basic questions but also represents a possible method we could use for explaining to your users what Starmind is as well as how it works.</P>
   </div>
 )
 
@@ -20,27 +20,22 @@ export const A1 = () => (
 
 export const A2 = () => (
   <div>
-    <P>I can provide all or a combination of:</P>
-    <ul>
-      <Li>Website / webapp design</Li>
-      <Li>Website / webapp building</Li>
-      <Li>Website maintainance</Li>
-      <Li>Search Engine Optimisation (SEO)</Li>
-    </ul>
+    <P>I can provide the full development lifecycle from design through creation, testing and release into maintanance and Search Engine Optimisation (SEO) and analytics or a combination of these to match your needs.</P>
   </div >
 )
 
 export const A3 = () => (
   <div>
     <P>I am a certified AGILE product owner.</P>
-    <P>In a previous role I designed and led a team to create a front end portal for the Ministry of Defence in the UK.</P>
-    <P>This allowed regiments to perform basic geospatial calculations, preview and order their maps.</P>
+    <P>In a previous role I led a team to create a front end portal for the Ministry of Defence in the UK.</P>
+    <P>Without a dedicated User Interface designer, I also took on this role and recieved enormous praise for my design.</P>
+    <P>Our software we built allows soldiers to perform basic geospatial calculations, preview and order maps for their regiments.</P>
   </div>
 )
 
 export const A4 = () => (
   <div>
-    <P>As a consultant I performed research for the UK Ministry of Defence into knowledge management and how organisations can improve the sharing of knowledge.</P>
+    <P>Before moving into product creation I was a consultant and performed research for the UK Ministry of Defence into knowledge management and how organisations can improve the sharing of knowledge.</P>
     <P>Having completed the research I was stunned at how poorly organisations share knowledge and how much knowledge leaves with an outgoing individual.</P>
     <P>Starmind, from my research looks like a very good solution to a problem space I am familiar with.</P>
   </div>

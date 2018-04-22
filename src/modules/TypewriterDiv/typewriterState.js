@@ -69,31 +69,31 @@ export const initialState = {
       no: 1,
     },
     {
-      typewriterText: 'What services does Adam Chilton provide?',
+      typewriterText: 'What services does Adam provide?',
       duration: 3,
       answer: answers.A2(),
       timeOut: 18000,
       no: 2,
     },
     {
-      typewriterText: 'What other experience does Adam Chilton have?',
+      typewriterText: 'What other experience does Adam have?',
       duration: 3,
       answer: answers.A3(),
-      timeOut: 20000,
+      timeOut: 18000,
       no: 3,
     },
     {
       typewriterText: 'What experience in the topic area does Adam Chilton have?',
       duration: 3,
       answer: answers.A4(),
-      timeOut: 20000,
+      timeOut: 18000,
       no: 3,
     },
     {
       typewriterText: 'Thank you for reading these questions and answers.',
       duration: 3,
       answer: answers.A5(),
-      timeOut: 1000,
+      timeOut: 100,
       no: 5,
     },
   ],
@@ -101,9 +101,10 @@ export const initialState = {
   showQuestions: true,
   showPhoneAnswer: false,
   questionsSeen: 0,
+  designCreateReleaseShowAfter: 2,
   questionControls: true,
   automateQuestions: true,
-  showRestOfSite: true,
+  showRestOfSite: false,
 }
 
 const totalQuestionCount = initialState.questions.length
@@ -167,6 +168,8 @@ export const getTypewriterTextQuestions = state => state.questions
 export const getShowPhoneAnswerState = state => state.showPhoneAnswer
 
 export const getQuestionsSeen = state => state.questionsSeen
+
+export const getdesignCreateReleaseShowAfter = state => state.designCreateReleaseShowAfter
 
 export const getQuestionControlState = state => state.questionControls
 

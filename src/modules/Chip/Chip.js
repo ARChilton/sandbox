@@ -12,6 +12,7 @@ flex-direction:row;
 flex-wrap:nowrap;
 justify-content: space-around;
 font-weight:bold;
+min-width:172px;
 `
 
 const Chip = ({ className, src, children }) => (

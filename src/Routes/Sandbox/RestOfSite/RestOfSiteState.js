@@ -2,6 +2,9 @@ import images from '../../../components/Images/Images'
 
 export const CHANGE_DESIGN_IMAGE = 'CHANGE_DESIGN_IMAGE'
 export const CHANGE_PORTFOLIO_IMAGE = 'CHANGE_PORTFOLIO_IMAGE'
+export const CHANGE_SEARCH_ENGINE_INPUT = 'CHANGE_SEARCH_ENGINE_INPUT'
+export const RESET_SEARCH_ENGINE_INPUT = 'RESET_SEARCH_ENGINE_INPUT'
+export const INCREMENT_SEARCH_ENGINE_INPUT = 'INCREMENT_SEARCH_ENGINE_INPUT'
 
 export const changeDesignImage = designImagePreview => ({
   type: CHANGE_DESIGN_IMAGE,
@@ -10,6 +13,19 @@ export const changeDesignImage = designImagePreview => ({
 export const changePortfolioImage = portfolioPreview => ({
   type: CHANGE_DESIGN_IMAGE,
   payload: { portfolioPreview },
+})
+
+export const changeSearchEngineInput = searchEngineInput => ({
+  type: CHANGE_SEARCH_ENGINE_INPUT,
+  payload: { searchEngineInput },
+})
+export const resetSearchEngineInput = () => ({
+  type: RESET_SEARCH_ENGINE_INPUT,
+  payload: { searchEngineInput: 0 },
+})
+
+export const incrementSearchEngineInput = () => ({
+  type: INCREMENT_SEARCH_ENGINE_INPUT,
 })
 
 const initialState = {
@@ -27,6 +43,19 @@ const initialState = {
     },
   ],
   portfolioPreview: 0,
+  searchEngine: ['How can I keep knowledge in house', 'What is starmind?', 'What is AI?', 'How to use Starmind', 'Tools for knowledge management', 'How can I make better use of staff knowledge'],
+  searchEngineInput: 0,
+}
+
+const searchEngineInputCount = initialState.searchEngine.length
+let autoSearchEngine = null
+const automateSearchEngineDelay = 5000
+export const automateSearchEngineInputs = id => (dispatch) => {
+  clearTimeout(autoSearchEngine)
+  const updater = (id + 1) < searchEngineInputCount
+    ? autoSearchEngine = setTimeout(() => dispatch(incrementSearchEngineInput()), automateSearchEngineDelay)
+    : setTimeout(() => dispatch(resetSearchEngineInput()), automateSearchEngineDelay)
+  return updater
 }
 
 const restOfSiteReducer = (state = initialState, action) => {
@@ -34,8 +63,13 @@ const restOfSiteReducer = (state = initialState, action) => {
   switch (type) {
     case CHANGE_DESIGN_IMAGE:
     case CHANGE_PORTFOLIO_IMAGE:
+    case CHANGE_SEARCH_ENGINE_INPUT:
+    case RESET_SEARCH_ENGINE_INPUT:
       return { ...state, ...payload }
-
+    case INCREMENT_SEARCH_ENGINE_INPUT: {
+      const inputVal = state.searchEngineInput + 1
+      return { ...state, searchEngineInput: inputVal }
+    }
     default:
       return state
   }
@@ -50,4 +84,8 @@ export const getDesignImagePreview = state => (state.designImagePreview)
 export const getPortfolioArray = state => state.portfolio
 
 export const getPortfolioPreview = state => state.portfolioPreview
+
+export const getSearchEngineArray = state => state.searchEngine
+
+export const getSearchEngineInput = state => state.searchEngineInput
 
