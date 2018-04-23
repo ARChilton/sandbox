@@ -6,6 +6,7 @@ import Typist from 'react-typist'
 import { connect } from 'react-redux'
 import 'react-typist/dist/Typist.css'
 import { autoUpdateQuestionNumber, togglePhoneAnswer } from '../typewriterState'
+import { phoneSurrondToScreenOnlySwitch } from '../../devices/IPhoneX/IPhoneXComponents/IPhoneXComponents'
 
 
 const TypewriterText = ({ className, typewriterText, onTypingDone }) => (
@@ -38,9 +39,14 @@ TypewriterText.defaultProps = {
 const DefaultTypewriterText = styled(TypewriterText) `
   font-family:'Anonymous Pro', monospace;
   font-size:1em;
+  line-height:1.5em;
   color:red;
   z-index:2;
   overflow: hidden;
+  @media(max-width:${`${phoneSurrondToScreenOnlySwitch}px`}){
+    font-size:16px;
+    line-height:20px;
+  }
  
 `
 DefaultTypewriterText.defaultProps = TypewriterText.defaultProps
