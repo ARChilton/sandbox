@@ -43,7 +43,7 @@ const initialState = {
     },
   ],
   portfolioPreview: 0,
-  searchEngine: ['How can I keep knowledge in house', 'What is starmind?', 'What is AI?', 'How to use Starmind', 'Tools for knowledge management', 'How can I make better use of staff knowledge'],
+  searchEngine: ['How can I keep knowledge in house', 'What is starmind?', 'What is AI?', 'How to use Starmind', 'Tools for knowledge management', 'Artificial Intelligence', 'How can I make better use of staff knowledge', 'Artificial Intelligence', 'AI companies'],
   searchEngineInput: 0,
 }
 
