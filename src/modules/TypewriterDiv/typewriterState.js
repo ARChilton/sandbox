@@ -89,7 +89,7 @@ export const initialState = {
       no: 3,
     },
     {
-      typewriterText: 'What experience in the topic area does Adam Chilton have?',
+      typewriterText: 'What experience in the topic area does Adam have?',
       duration: 3,
       answer: answers.A4(),
       timeOut: 18000,
