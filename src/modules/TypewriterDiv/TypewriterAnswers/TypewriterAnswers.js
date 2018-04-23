@@ -1,6 +1,13 @@
 import React from 'react'
-import { P, H4 } from '../../../components/Text/Text'
+import styled from 'react-emotion'
+import { P as Para, H4 } from '../../../components/Text/Text'
+import { phoneSurrondToScreenOnlySwitch } from '../../devices/IPhoneX/IPhoneXComponents/IPhoneXComponents'
 
+const P = styled(Para) `
+@media(max-width:${`${phoneSurrondToScreenOnlySwitch}px`}){
+  font-size:14px;
+}
+`
 
 export const A0 = () => (
   <div>
@@ -45,5 +52,6 @@ export const A5 = () => (
   <div>
     <P>Please scroll down to read more about the services I provide and my experience.</P>
     <P>A small portfolio of websites I have built or been a part of building are at the bottom of the page.</P>
+    <P>On future visits to expose the bottom of the site, click the {"'skip demo'"} button in the toolbar of this phone.</P>
   </div>
 )
