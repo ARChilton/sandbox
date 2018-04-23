@@ -31,7 +31,7 @@ const pencil = css`
   stroke-linejoin: miter;
   stroke-linecap: round;
   animation: ${draw} 25s linear alternate infinite;
-  animation-delay:3s;
+  animation-delay:1s;
 `
 
 const create = css`

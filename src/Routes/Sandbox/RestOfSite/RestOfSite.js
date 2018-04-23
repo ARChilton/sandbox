@@ -29,6 +29,14 @@ min-height:80vh;
   flex-direction:column;
 }
 `
+
+const OrderedDiv = styled('div') `
+order:${props => props.order || 0};
+@media(max-width:992px){
+  order: ${props => props.mdOrder || props.order || 0};
+}
+`
+
 const imgStyling = css`
 width:100%;
 `
@@ -68,9 +76,6 @@ background-color: ${props => props.theme.color.primary};
 color: #fff;
 margin-top:6vh;
 margin-bottom:6vh;
-@media(max-width:992px){
-  order:2;
-}
 `
 
 const smallScreenHide = css`
@@ -118,8 +123,8 @@ const RestOfSite = ({
         <div className="col-md-6 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>Design</H20emMarginTop>
-            <P>No matter how skilled the developer drawing a web page is faster than building it.</P>
-            <P>Being agile and iterative in design during the early stages of a project helps get both the customer and developer understanding each other. To enable me in this task I use a wireframing tool.</P>
+            <P>No matter how skilled the developer, drawing a web page is faster than building it.</P>
+            <P>Being agile and iterative in design during the early stages of a project helps get both the customer and developer understanding each other. To enable me in this task, I use a wireframing tool.</P>
             <P>This allows me to create wireframes like the ones <span className={smallScreenHide}>to the left</span><span className={smallScreenShow}>above</span>. They have a deliberately hand-drawn style because their purpose is not to be an exact representation but a generalisation for greater understanding.</P>
             <P>I first began using wireframing as a rapid prototyping tool in a previous role as a Product Owner. This aided me in communicating and testing designs and became a tool I used every day.</P>
             <P>If you work with me we would collaboratively design your site and I would create interactive wireframes as my first deliverable to enable you to get a better feel for the flow of the site. This would be an iterative process.</P>
@@ -130,23 +135,27 @@ const RestOfSite = ({
         <Hr />
       </div>
       <FlexContainer className="row" id="createSection">
-        <div className="col-md-4 col-xs-10">
+        <OrderedDiv className="col-md-4 col-xs-10" order={1}>
           <Create />
-        </div>
-        <div className="col-md-6 col-xs-12">
+        </OrderedDiv>
+        <OrderedDiv mdOrder={2} className="col-md-6 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>Create</H20emMarginTop>
-            <P>While I {"don't"} have decades of front end web development I do have experience in the latest technologies, most of which have only existed in the last 3 - 4 years, so there are very few individuals with more than a year or two of experience.</P>
-            <P>My favoured website building technology is to use the React framework, this was created and maintained by Facebook. The benefits of using this technology is that the whole website is built from reusable building blocks and while it looks and acts like any other website it is in fact a single page enabling lightning fast page transfers and updates, such as the ones that reveal aspects of this website.</P>
+            <P>While I {"don't"} have decades of front end web development I do have experience in the latest technologies, most of which have only existed in the last three or four years, so there are very few individuals with more than a year or two of experience.</P>
+            <P>My favoured website building technology is the React framework, this was created and maintained by Facebook. The benefits of using this technology is that the whole website is built from reusable building blocks and while it looks and acts like any other website it is in fact a single page enabling lightning fast page transfers and updates, such as the ones that reveal aspects of this website.</P>
             <P>This {"isn't"} the only technology I am familiar with, I have also created websites in a more traditional sense or using Wordpress.</P>
             <P>This demonstration is a React website.</P>
           </ColouredBoxes>
-        </div>
+        </OrderedDiv>
       </FlexContainer>
+
       <div className="col-xs-12">
         <Hr />
       </div>
       <FlexContainer className="row" id="releaseSection">
+        <div className="col-xs-4">
+          <SpinningArrows />
+        </div>
         <div className="col-md-6 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>Release</H20emMarginTop>
@@ -155,36 +164,33 @@ const RestOfSite = ({
             <P>In the case of Starmind, if I were to update your website I would look to update page by page and by alike components, such as the navigation bar as to maintain consistency across the website.</P>
           </ColouredBoxes>
         </div>
-        <div className="col-xs-4" style={{ order: '1' }}>
-          <SpinningArrows />
-        </div>
+
       </FlexContainer>
       <div className="col-xs-12">
         <Hr />
       </div>
       <FlexContainer className="row" id="seoSection">
-        <div className="col-md-4 col-xs-12">
-          <SearchEngine no={searchEngineInput}>
-            {searchEngine[searchEngineInput]}
-          </SearchEngine>
-
-        </div>
-        <div className="col-md-6 col-xs-12">
+        <OrderedDiv mdOrder={2} className="col-md-6 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>SEO</H20emMarginTop>
             <P>The work {"doesn't"} stop when the website goes live, SEO (Search Engine Optimisation) is key to bringing business to your site.</P>
             <P>I have a number of tools I work with regularly to perform checks for key SEO indicators both as I create the website and for after the site is live. I will also add your website into the Google and Bing webmaster tools to ensure that the site gets indexed.</P>
-            <P>Understanding SEO while creating a website is also key. The structure of the website and {"it's"} accessibility are key indicators that Google is known to look for in creating {"it's"} index. Getting this right first time by building the site with SEO in mind saves time and money over the length of the project.</P>
+            <P>Understanding SEO while creating a website is also key. The structure of the website and {"it's"} accessibility are key indicators that Google is known to look for in creating {"it's"} index. Getting this right the first time by building the site with SEO in mind saves time and money over the length of the project.</P>
             <P>Just as key to this are good analytics, performing tests on what the visitors to the site read and interact with allows us to make more informed decisions going forward. By utilising the AGILE methodology and releasing early and often we would give ourselves the opportunity to learn from the visitors themselves instead of speculation and best guesses.</P>
           </ColouredBoxes>
-        </div>
+        </OrderedDiv>
+        <OrderedDiv order={1} className="col-md-4 col-xs-12">
+          <SearchEngine no={searchEngineInput}>
+            {searchEngine[searchEngineInput]}
+          </SearchEngine>
+        </OrderedDiv>
       </FlexContainer>
       <div className="col-xs-12">
         <Hr />
       </div>
       <FlexContainer className="row" id="portfolioSection" style={{ flexDirection: 'column', justifyContent: 'center' }}>
 
-
+        <H2 style={{ fontFamily: 'Kalam' }}>Some of my previous work:</H2>
         <H3 style={{ marginBottom: '6vh' }}>
           <A
             target="_blank"
