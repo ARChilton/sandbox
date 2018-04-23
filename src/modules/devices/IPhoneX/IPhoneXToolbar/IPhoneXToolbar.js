@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
 
 
-const left = css `
+const left = css`
   min-width:25%;
   /* float:left; */
 `
-const center = css `
+const center = css`
   min-width:50%;
   /* float:left; */
 `
-const right = css `
+const right = css`
   min-width:25%;
-  /* float:right; */
+  float:right;
 `
 const IPhoneXToolbar = ({
   className, leftChildren, centerChildren, rightChildren,
@@ -44,5 +44,8 @@ const DefaultIPhoneXToolbar = styled(IPhoneXToolbar) `
   line-height:30px;
   text-align:center;
   border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction:row;
+  align-items:center;
 `
 export default DefaultIPhoneXToolbar

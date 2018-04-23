@@ -8,7 +8,9 @@ const INCREASE_QUESTION_NUMBER = 'INCREASE_QUESTION_NUMBER'
 const DECREASE_QUESTION_NUMBER = 'DECREASE_QUESTION_NUMBER'
 const SHOW_QUESTIONS = 'SHOW_QUESTIONS'
 const SHOW_REST_OF_SITE = 'SHOW_REST_OF_SITE'
-export const INCREASE_QUESTIONS_SEEN = 'INCREASE_QUESTIONS_SEEN'
+const INCREASE_QUESTIONS_SEEN = 'INCREASE_QUESTIONS_SEEN'
+const SKIP_DEMO = 'SKIP_DEMO'
+
 
 export const changeQuestionNumber = (questionNumber = 0) => ({
   type: CHANGE_QUESTION_NUMBER,
@@ -50,6 +52,10 @@ export const toggleShowQuestions = (showQuestions = true) => ({
 export const toggleShowRestOfSite = (showRestOfSite = true) => ({
   type: SHOW_REST_OF_SITE,
   payload: { showRestOfSite },
+})
+
+export const skipDemo = () => ({
+  type: SKIP_DEMO,
 })
 
 export const initialState = {
@@ -142,6 +148,9 @@ const typewriterReducer = (state = initialState, action) => {
 
     case SHOW_QUESTION_CONTROLS:
       return { ...state, ...payload, automateQuestions: false }
+
+    case SKIP_DEMO:
+      return { ...state, questionsSeen: state.designCreateReleaseShowAfter + 1, showRestOfSite: true }
 
     case INCREASE_QUESTION_NUMBER: {
       window.clearTimeout(autoTimeOut)

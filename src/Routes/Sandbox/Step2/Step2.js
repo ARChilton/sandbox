@@ -10,6 +10,7 @@ import { getShowQuestionControlState, getTypewriterQuestionNumber, getTypewriter
 import { increaseQuestionNumber, decreaseQuestionNumber } from '../../../modules/TypewriterDiv/typewriterState'
 import LeftHandSide from './LeftHandSide/LeftHandSide'
 import { H2 } from '../../../components/Text/Text'
+import { phoneSurrondToScreenOnlySwitch } from '../../../modules/devices/IPhoneX/IPhoneXComponents/IPhoneXComponents'
 
 const additionalInfoContainerClass = css`
 padding:8px;
@@ -34,6 +35,9 @@ display:flex;
 justify-content:space-evenly;
 align-items:center;
 flex-direction:row;
+@media(max-width:${`${phoneSurrondToScreenOnlySwitch}px`}){
+  width:100%;
+}
 `
 
 const buttonContainer = css`

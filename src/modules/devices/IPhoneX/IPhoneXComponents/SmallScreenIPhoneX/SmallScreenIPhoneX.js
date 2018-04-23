@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'react-emotion'
 import IPhoneXToolbar from '../../IPhoneXToolbar/IPhoneXToolbar'
 import IPhoneXKeyboard from '../../IPhoneXKeyboard/IPhoneXKeyboard'
 import IPhoneXStatusBar from '../../IPhoneXStatusBar/IPhoneXStatusBar'
 import { IPhoneXScreen } from '../IPhoneXComponents'
+import SkipDemo from '../../SkipDemo/SkipDemo'
 
 
 const SmallScreenIPhoneX = ({
@@ -13,7 +15,7 @@ const SmallScreenIPhoneX = ({
     <div className={className}>
       <IPhoneXScreen>
         <IPhoneXStatusBar />
-        {toolbar ? <IPhoneXToolbar centerChildren={toolbarTitle} /> : null}
+        {toolbar ? <IPhoneXToolbar centerChildren={toolbarTitle} rightChildren={<SkipDemo />} /> : null}
         {children}
         {keyboard ? <IPhoneXKeyboard /> : null}
       </IPhoneXScreen>
@@ -37,4 +39,8 @@ SmallScreenIPhoneX.defaultProps = {
   toolbar: false,
 }
 
-export default SmallScreenIPhoneX
+const DefaultSmallScreenIphoneX = styled(SmallScreenIPhoneX) `
+
+`
+
+export default DefaultSmallScreenIphoneX

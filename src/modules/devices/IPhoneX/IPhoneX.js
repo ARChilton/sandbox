@@ -4,6 +4,7 @@ import IPhoneXStatusBar from './IPhoneXStatusBar/IPhoneXStatusBar'
 import IPhoneXKeyboard from './IPhoneXKeyboard/IPhoneXKeyboard'
 import IPhoneXToolbar from './IPhoneXToolbar/IPhoneXToolbar'
 import { IPhoneXDisplayNoneForSmallDevices, IPhoneXNotch, IPhoneXSleepButton, IPhoneXCamera, IPhoneXSpeaker, IPhoneXTopBar, IPhoneXBottomBar, IPhoneXVolumeButton, IPhoneXOverflow, IPhoneXShadowTopRight, IPhoneXShadowTopLeft, IPhoneXShadowBottomRight, IPhoneXShadowBottomLeft, IPhoneXInnerShadow, IPhoneXScreen, ScreenOnlyIPhoneX } from './IPhoneXComponents/IPhoneXComponents'
+import SkipDemo from './SkipDemo/SkipDemo'
 
 const IPhoneX = ({
   children, keyboard, toolbarTitle, className, toolbar,
@@ -28,13 +29,13 @@ const IPhoneX = ({
         <IPhoneXInnerShadow />
         <IPhoneXScreen>
           <IPhoneXStatusBar />
-          {toolbar ? <IPhoneXToolbar centerChildren={toolbarTitle} /> : null}
+          {toolbar ? <IPhoneXToolbar centerChildren={toolbarTitle} rightChildren={<SkipDemo />} /> : null}
           {children}
 
           {keyboard ? <IPhoneXKeyboard /> : null}
         </IPhoneXScreen>
       </IPhoneXDisplayNoneForSmallDevices>
-      <ScreenOnlyIPhoneX keyboard={keyboard} toolbarTitle={toolbarTitle}>
+      <ScreenOnlyIPhoneX keyboard={keyboard} toolbarTitle={toolbarTitle} toolbar>
         {children}
       </ScreenOnlyIPhoneX>
 
