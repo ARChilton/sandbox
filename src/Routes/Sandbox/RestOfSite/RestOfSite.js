@@ -125,8 +125,8 @@ const RestOfSite = ({
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>Design</H20emMarginTop>
             <P>No matter how skilled the developer, drawing a web page is faster than building it.</P>
             <P>Being agile and iterative in design during the early stages of a project helps get both the customer and developer understanding each other. To enable me in this task, I use a wireframing tool.</P>
-            <P>This allows me to create wireframes like the ones <span className={smallScreenHide}>to the left</span><span className={smallScreenShow}>above</span>. They have a deliberately hand-drawn style because their purpose is not to be an exact representation but a generalisation for greater understanding.</P>
-            <P>I first began using wireframing as a rapid prototyping tool in a previous role as a Product Owner. This aided me in communicating and testing designs and became a tool I used every day.</P>
+            <P>This allows me to create wire-frames like the ones <span className={smallScreenHide}>to the left</span><span className={smallScreenShow}>above</span>. They have a deliberately hand-drawn style because their purpose is not to be an exact representation but a generalisation for greater understanding.</P>
+            <P>I first began using wire-framing as a rapid prototyping tool in a previous role as a Product Owner. This aided me in communicating and testing designs and became a tool I used every day.</P>
             <P>If you work with me we would collaboratively design your site and I would create interactive wireframes as my first deliverable to enable you to get a better feel for the flow of the site. This would be an iterative process.</P>
           </ColouredBoxes>
         </div>
