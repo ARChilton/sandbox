@@ -108,7 +108,7 @@ const Step2 = ({
 
           <div className={buttonContainer}>
             {showControlButtons && questionNumber > 0 ?
-              <Button onClick={onClickLeft}><Chevron style={{ transform: 'rotate(225deg)', marginBottom: '-6px' }} /></Button> : null}
+              <Button onClick={onClickLeft}><Chevron style={{ transform: 'rotate(225deg)' }} /></Button> : null}
           </div>
 
           <DeviceContainer >
@@ -122,7 +122,7 @@ const Step2 = ({
 
           <div className={buttonContainer}>
             {showControlButtons && (questionNumber !== (questions - 1)) ?
-              <Button onClick={onClickRight}><Chevron style={{ transform: 'rotate(45deg)', marginTop: '-6px' }} /></Button> : null}
+              <Button onClick={onClickRight}><Chevron style={{ transform: 'rotate(45deg)', marginTop: '-20px' }} /></Button> : null}
           </div>
 
         </div>
