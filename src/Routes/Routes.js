@@ -6,7 +6,7 @@ import { Route } from 'react-router'
 // import NavBar from '../modules/NavBar/NavBar'
 
 import Sandbox from './Sandbox/Sandbox'
-import ProjectsPage from './ProjectsPage/ProjectsPage'
+// import ProjectsPage from './ProjectsPage/ProjectsPage'
 
 
 const Routes = () => (
@@ -14,7 +14,7 @@ const Routes = () => (
     {/* <NavBar /> */}
     <Route exact path="/" component={Sandbox} />
     <Route exact path="/starmind" component={Sandbox} />
-    <Route path="/projects" component={ProjectsPage} />
+    {/* <Route path="/projects" component={ProjectsPage} /> */}
   </div>
 )
 
