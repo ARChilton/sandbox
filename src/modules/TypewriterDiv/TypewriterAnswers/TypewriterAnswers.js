@@ -20,7 +20,7 @@ export const A1 = () => (
 
 export const A2 = () => (
   <div>
-    <P>I can provide the full development lifecycle from design through creation, testing and release into maintanance and Search Engine Optimisation (SEO) and analytics or a combination of these to match your needs.</P>
+    <P>I can provide the full development lifecycle from design through creation, testing and release into maintenance and Search Engine Optimisation (SEO) and analytics or a combination of these to match your needs.</P>
   </div >
 )
 
@@ -28,7 +28,7 @@ export const A3 = () => (
   <div>
     <P>I am a certified AGILE product owner.</P>
     <P>In a previous role I led a team to create a front end portal for the Ministry of Defence in the UK.</P>
-    <P>Without a dedicated User Interface designer, I also took on this role and recieved enormous praise for my design.</P>
+    <P>Without a dedicated User Interface designer, I also took on this role and received enormous praise for my design.</P>
     <P>Our software we built allows soldiers to perform basic geospatial calculations, preview and order maps for their regiments.</P>
   </div>
 )

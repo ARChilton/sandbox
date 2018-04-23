@@ -55,7 +55,7 @@ export const toggleShowRestOfSite = (showRestOfSite = true) => ({
 export const initialState = {
   questions: [
     {
-      typewriterText: 'Why is there a phone in the center of the screen?',
+      typewriterText: 'Why is there a phone in the centre of the screen?',
       duration: 2,
       timeOut: 18000,
       answer: answers.A0(),
