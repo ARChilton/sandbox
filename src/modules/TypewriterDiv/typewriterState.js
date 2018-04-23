@@ -107,7 +107,7 @@ export const initialState = {
   showQuestions: true,
   showPhoneAnswer: false,
   questionsSeen: 0,
-  designCreateReleaseShowAfter: 2,
+  designCreateReleaseShowAfter: 1,
   questionControls: true,
   automateQuestions: true,
   showRestOfSite: false,
