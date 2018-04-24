@@ -136,17 +136,20 @@ const RestOfSite = ({
       </div>
       <FlexContainer className="row" id="createSection">
         <OrderedDiv className="col-md-4 col-xs-10" order={1}>
-          <Create />
+          <Create className="col-xs-12" />
         </OrderedDiv>
-        <OrderedDiv mdOrder={2} className="col-md-6 col-xs-12">
+        <OrderedDiv order={0} mdOrder={2} className="col-md-6 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>Create</H20emMarginTop>
             <P>While I {"don't"} have decades of front end web development I do have experience in the latest technologies, most of which have only existed in the last three or four years, so there are very few individuals with more than a year or two of experience.</P>
             <P>My favoured website building technology is the React framework, this was created and maintained by Facebook. The benefits of using this technology is that the whole website is built from reusable building blocks and while it looks and acts like any other website it is in fact a single page enabling lightning fast page transfers and updates, such as the ones that reveal aspects of this website.</P>
             <P>This {"isn't"} the only technology I am familiar with, I have also created websites in a more traditional sense or using Wordpress.</P>
+            <P>A good website is not complete without back-end services. I can provide you with built-in services for your website such as email automation and database integrations.</P>
+            <P>Lastly, the best websites continue to work even when the user is offline or has slow internet speeds. These are called Progressive Web Apps (PWAs) and utilise the very latest in browser technology to ensure the user never sees the {'"You Are Offline"'} screen.</P>
             <P>This demonstration is a React website.</P>
           </ColouredBoxes>
         </OrderedDiv>
+
       </FlexContainer>
 
       <div className="col-xs-12">
