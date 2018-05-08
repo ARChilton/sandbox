@@ -20,7 +20,6 @@ import { laptopPhoneSwitchScreenWidth } from '../../../modules/devices/MacBook/M
 
 const FlexContainer = styled('div') `
 display:flex;
-justify-content:space-around;
 align-items:center;
 flex-direction:row;
 width:100%;
@@ -108,7 +107,7 @@ const RestOfSite = ({
     <div>
       <HrBottomOnly className="col-xs-12" />
       <FlexContainer className="row" id="designSection">
-        <div className={cx('col-md-4', 'col-xs-12', imageColumn)} style={{ height: '90vh' }}>
+        <div className={cx('col-md-4', 'col-md-offset-1', 'col-xs-12', imageColumn)} style={{ height: '90vh' }}>
           <BackgroundImg src={designImages[designImagePreview]} className="col-xs-12" />
           <div className={imageSelectionRow}>
             {designImages.map((image, i) => (
@@ -120,7 +119,7 @@ const RestOfSite = ({
           </div>
 
         </div>
-        <div className="col-md-6 col-xs-12">
+        <div className="col-md-5 col-md-offset-1 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>Design</H20emMarginTop>
             <P>No matter how skilled the developer, drawing a web page is faster than building it.</P>
@@ -134,11 +133,11 @@ const RestOfSite = ({
       <div className="col-xs-12">
         <Hr />
       </div>
-      <FlexContainer className="row" id="createSection">
-        <OrderedDiv className="col-md-4 col-xs-10" order={1}>
+      <FlexContainer className="" id="createSection">
+        <OrderedDiv className="col-md-4 col-md-offset-1 col-xs-10" order={1}>
           <Create className="col-xs-12" />
         </OrderedDiv>
-        <OrderedDiv order={0} mdOrder={2} className="col-md-6 col-xs-12">
+        <OrderedDiv order={0} mdOrder={2} className="col-md-5 col-md-offset-1 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>Create</H20emMarginTop>
             <P>While I {"don't"} have decades of front end web development I do have experience in the latest technologies, most of which have only existed in the last three or four years, so there are very few individuals with more than a year or two of experience.</P>
@@ -156,10 +155,10 @@ const RestOfSite = ({
         <Hr />
       </div>
       <FlexContainer className="row" id="releaseSection">
-        <div className="col-xs-4">
+        <div className="col-xs-4 col-md-offset-1">
           <SpinningArrows />
         </div>
-        <div className="col-md-6 col-xs-12">
+        <div className="col-md-5 col-md-offset-1 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>Release</H20emMarginTop>
             <P>Having been a Product Owner in the past, I know how to break down and manage software development cycles.</P>
@@ -173,7 +172,7 @@ const RestOfSite = ({
         <Hr />
       </div>
       <FlexContainer className="row" id="seoSection">
-        <OrderedDiv mdOrder={2} className="col-md-6 col-xs-12">
+        <OrderedDiv mdOrder={2} className="col-md-5 col-md-offset-1 col-xs-12">
           <ColouredBoxes>
             <H20emMarginTop style={{ fontFamily: 'Kalam', fontWeight: 'bold' }}>SEO</H20emMarginTop>
             <P>The work {"doesn't"} stop when the website goes live, SEO (Search Engine Optimisation) is key to bringing business to your site.</P>
@@ -182,7 +181,7 @@ const RestOfSite = ({
             <P>Just as key to this are good analytics, performing tests on what the visitors to the site read and interact with allows us to make more informed decisions going forward. By utilising the AGILE methodology and releasing early and often we would give ourselves the opportunity to learn from the visitors themselves instead of speculation and best guesses.</P>
           </ColouredBoxes>
         </OrderedDiv>
-        <OrderedDiv order={1} className="col-md-4 col-xs-12">
+        <OrderedDiv order={1} className="col-md-4 col-md-offset-1 col-xs-12">
           <SearchEngine no={searchEngineInput}>
             {searchEngine[searchEngineInput]}
           </SearchEngine>

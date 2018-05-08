@@ -8,7 +8,7 @@ import createHistory from 'history/createBrowserHistory'
 import { ThemeProvider } from 'emotion-theming'
 import 'typeface-anonymous-pro/index.css'
 import 'typeface-kalam/index.css'
-import 'typeface-titillium-web/index.css'
+import 'typeface-volkhov/index.css'
 // redux
 import { Provider as ReduxStoreProvider } from 'react-redux'
 // redux store
